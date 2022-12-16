@@ -1,0 +1,29 @@
+body {
+  background-color: #e5e5f7;
+opacity: 0.7;
+background-image: radial-gradient(#565eff 0.75px, #e5e5f7 0.75px);
+background-size: 15px 15px;
+}
+
+.form {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-product {
+  background-color: #fff;
+  margin:auto;
+  width: 90%;
+  max-width: 400px;
+  padding: 4.5em 3em;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgb(0, 0, 0/ 30%);
+  text-align: center;
+}
+
+.form.title {
+  font-size: 2rem;
+  margin-bottom: .5em;
+}
