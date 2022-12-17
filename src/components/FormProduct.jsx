@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
 import "../styles/crearProducto.css";
+import { createProducts } from "../context/UserActions";
 
 const FormProducto = () => {
   const [dataForm, setDataForm] = useState({});
@@ -18,7 +19,19 @@ const FormProducto = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let formData = new FormData();
+    formData.append('nombre', dataForm.nombre);
+    formData.append('estado', dataForm.estado);
+    formData.append('precio', dataForm.precio);
+    formData.append('detalle', dataForm.detalle);
+    formData.append('image', imgFile[0]);
+    formData.append('categoria', dataForm.categoria);
+    createProducts(formData);
   };
+
+  console.log(dataForm)
+  console.log(imgFile)
 
   return (
     <div className="form">
@@ -97,8 +110,8 @@ const FormProducto = () => {
             </Input>
           </FormGroup>
 
-          <Button className="form-submit" value="enviar">
-            Submit
+          <Button type="submit" className="form-submit">
+            Enviar
           </Button>
         </div>
       </Form>

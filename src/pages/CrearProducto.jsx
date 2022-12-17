@@ -5,7 +5,7 @@ function Producto() {
   
 
   return (
-    <div className=''>
+    <div>
       <div>
         <FormProduct />
       </div>
