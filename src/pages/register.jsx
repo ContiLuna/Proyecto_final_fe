@@ -1,7 +1,7 @@
 import React from 'react';
-import Registro from '../components/formRegister';
+import Registro from '../components/FormRegister';
 
-function Registro() {
+function Formulario () {
   
 
   return (
