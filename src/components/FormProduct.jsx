@@ -30,9 +30,6 @@ const FormProducto = () => {
     createProducts(formData);
   };
 
-  console.log(dataForm)
-  console.log(imgFile)
-
   return (
     <div className="form">
       <Form className="form-product" onSubmit={handleSubmit}>
@@ -59,8 +56,8 @@ const FormProducto = () => {
               onChange={handleChange}
             >
               <option>Seleccione un estado</option>
-              <option value="disponible">Disponible</option>
-              <option value="no disponible">No disponible</option>
+              <option value="true">Disponible</option>
+              <option value="false">No disponible</option>
             </Input>
           </FormGroup>
           <FormGroup className="form-group">

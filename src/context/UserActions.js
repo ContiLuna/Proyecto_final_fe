@@ -10,9 +10,9 @@ export const createProducts = async (formData) => {
             }
          })
          Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: 'Tu producto se ha agregado con exito!',
             showConfirmButton: false,
             timer: 1500
           })
