@@ -1,11 +1,37 @@
-.login {
-    width: 100%;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .container-login {
+    width: 400px;
+    height: 500px;
+    max-width: 1200px;
+    margin: 0px auto;
+    margin-top: 150px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login input {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.login h2 {
+    margin: 35px 0px;
+    color: white;
+}
+.login button {
+    margin-bottom: 15px;
+    font-size: 22px;
+    border-radius: 20px;
+}
+.form-floating {
     width: 100%;
-    max-width: 500px;
+}
+@media (max-width:500px) {
+    .container-login {
+        width: 95%;
+    }
 }

@@ -2,13 +2,14 @@ import axios from "axios";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import "./loginStyle.css"
-import Swal from 'sweetalert2'
+import "./loginStyle.css";
+import Swal from "sweetalert2";
 import { UserContext } from "../context/UserContext";
 import { loginUser } from "../context/UserActions";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const login = () => {
-  const { state, dispatch} = useContext(UserContext)
+  const { state, dispatch } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -16,24 +17,43 @@ const login = () => {
   } = useForm();
   const navigate = useNavigate();
 
-  const enviarLogin = async (data) => {
+  const sendLogin = async (data) => {
     console.log(data);
-    dispatch(loginUser(data, navigate))
-    
+    dispatch(loginUser(data, navigate));
   };
 
   return (
-    <form className="login" onSubmit={handleSubmit(enviarLogin)}>
-      <div className="container-login">
-      <div>
-        <label htmlFor="">Email</label>
-        <input {...register("username")} type="email" name="username" />
-      </div>
-      <div>
-        <label htmlFor="">Password</label>
-        <input {...register("password")} type="password" name="password" />
-      </div>
-      <button type="submit">Enviar</button>
+    <form
+      className="container-login bg-dark "
+      onSubmit={handleSubmit(sendLogin)}
+    >
+      <div className="login">
+        <h2>Iniciar Sesion</h2>
+        <div className="form-floating mb-3">
+          <input
+            {...register("username")}
+            type="email"
+            name="username"
+            className="form-control"
+            id="floatingInput"
+            placeholder="Email"
+          />
+          <label htmlFor="floatingInput">Email</label>
+        </div>
+        <div className="form-floating mb-3">
+          <input
+            {...register("password")}
+            type="password"
+            name="password"
+            className="form-control"
+            id="floatingPassword"
+            placeholder="Contraseña"
+          />
+          <label htmlFor="floatingPassword">Contraseña</label>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Iniciar sesion
+        </button>
       </div>
     </form>
   );
