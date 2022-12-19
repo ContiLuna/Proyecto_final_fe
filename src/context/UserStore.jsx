@@ -20,9 +20,6 @@ const UserStore = ({ children }) => {
         }
     }
 
-
-
-
  return (
     <UserContext.Provider value={{ state, dispatch: dispatchSelector }}>
         {children}
