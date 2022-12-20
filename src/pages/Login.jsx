@@ -3,7 +3,6 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import "./loginStyle.css";
-// import Swal from "sweetalert2";
 import { UserContext } from "../context/UserContext";
 import { loginUser } from "../context/UserActions";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,26 +30,33 @@ const login = () => {
         <h2>Iniciar Sesion</h2>
         <div className="form-floating mb-3">
           <input
-            {...register("email", {required: "El campo es requerido", minLength: 10, maxLength:32 })}
+            {...register("email", {
+              required: "Campo requerido",
+              minLength: 10,
+              maxLength: 32,
+            })}
             type="email"
             name="email"
             className="form-control"
             id="floatingInput"
             placeholder="Email"
           />
-          {errors?.username?.message}
+          <span className="error-email">{errors?.email?.message}</span>
           <label htmlFor="floatingInput">Email</label>
         </div>
         <div className="form-floating mb-3">
           <input
-            {...register("password", {required: "El campo es requerido", maxLength:20 })}
+            {...register("password", {
+              required: "Campo requerido",
+              maxLength: 20,
+            })}
             type="password"
             name="password"
             className="form-control"
             id="floatingPassword"
             placeholder="Contraseña"
           />
-          {errors?.password?.message}
+          <span className="error-pw">{errors?.password?.message}</span>
           <label htmlFor="floatingPassword">Contraseña</label>
         </div>
         <button type="submit" className="btn btn-primary">
