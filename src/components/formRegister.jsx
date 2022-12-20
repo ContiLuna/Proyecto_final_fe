@@ -2,13 +2,14 @@ import React, { useRef, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { axiosInstance } from "../config/InstanciAxios.js";
 import { } from "../styles/FormRegister.css";
+import { } from "./registro"
 
 const RegistroForm = () => {
   const { register, handleSubmit, formState: {errors} } = useForm();
 
   const enviarFormulario = async (data) => {
    try {
-    const registro = await axiosInstance.post('/users/registro', data);
+    const registro = await axiosInstance.post('/register', data);
     console.log(registro.data);
    } catch (error) {
     console.log(error.response.data)
@@ -22,18 +23,20 @@ const RegistroForm = () => {
         <h1 className="registrarse">Registrarse</h1>
           <div>
           <input className="input"
-          {...register('name', {required: "el campo es requerido"})}
+          {...register('nombre', {required: "el campo es requerido"})}
           type="text"
-            name="name"
+            name="nombre"
+            id="nombre"
             placeholder ="Nombre"
           />
           {errors?.nombre?.message}
         </div>
         <div>
           <input className="input"
-          {...register('username')}
+          {...register('email')}
             type="email"
-            name="username"
+            name="email"
+            id="u"
             placeholder="Email"
             />
         </div>

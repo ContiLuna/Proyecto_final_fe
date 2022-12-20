@@ -1,4 +1,4 @@
-import Registro from './components/FormRegister';
+import Registro from './components/formRegister';
 
 function App() {
   return (
