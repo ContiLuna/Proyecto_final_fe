@@ -24,7 +24,7 @@ const Footer = () => {
                         <ul className='list-unstyled d-flex justify-content-between m-4'>
                             <a href="https://facebook.com" target='_blank' role="button" class="btn btn-primary text-center"><i class="bi bi-facebook"></i></a>
                             <a href="https://instagram.com" target='_blank' role="button" class="btn btn-danger text-center"><i class="bi bi-instagram"></i></a>
-                            <a href="https://twitter.com" target='_blank' role="button" class="btn btn-info text-center"><i class="bi bi-twitter"></i></a>
+                            <a href="https://twitter.com" target='_blank' role="button" class="btn btn-primary text-center"><i class="bi bi-twitter"></i></a>
                         </ul>
                     </div>
                 </div>
