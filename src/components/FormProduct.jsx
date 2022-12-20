@@ -44,6 +44,7 @@ const FormProducto = () => {
               placeholder=" "
               type="text"
               onChange={handleChange}
+              required
             />
             <Label className="form-label" for="nombre">
               Nombre
@@ -56,6 +57,7 @@ const FormProducto = () => {
               name="estado"
               type="select"
               onChange={handleChange}
+              required
             >
               <option>Seleccione un estado</option>
               <option value="true">Disponible</option>
@@ -69,6 +71,7 @@ const FormProducto = () => {
               placeholder=" "
               type="number"
               onChange={handleChange}
+              required
             />
             <Label className="form-label" for="precio">
               Precio
@@ -82,6 +85,7 @@ const FormProducto = () => {
               placeholder=" "
               type="text"
               onChange={handleChange}
+              required
             />
             <Label className="form-label" for="detalle">
               Detalle
@@ -94,6 +98,7 @@ const FormProducto = () => {
               name="imagen"
               type="file"
               onChange={handleFiles}
+              required
             />
           </FormGroup>
           <FormGroup className="form-group">
@@ -102,6 +107,7 @@ const FormProducto = () => {
               name="categoria"
               type="select"
               onChange={handleChange}
+              required
             >
               <option>Seleccione una categoria</option>
               <option value="hamburguesas">Hamburguesas</option>
