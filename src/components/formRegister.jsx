@@ -18,31 +18,33 @@ const RegistroForm = () => {
   return (
     <div className="form">
       <form className="in-form" onSubmit={handleSubmit(enviarFormulario)}>
-        <div>
+        <div className="input" >
         <h1 className="registrarse">Registrarse</h1>
-          <input className="color"
+          <div>
+          <input className="input"
           {...register('name', {required: "el campo es requerido"})}
-            type="text"
+          type="text"
             name="name"
             placeholder ="Nombre"
           />
           {errors?.nombre?.message}
         </div>
         <div>
-          <input
+          <input className="input"
           {...register('username')}
             type="email"
             name="username"
             placeholder="Email"
-          />
+            />
         </div>
         <div>
-          <input
+          <input className="input" 
           {...register('password')}
-            type="password"
-            name="password"
-            placeholder="Contraseña"
+          type="password"
+          name="password"
+          placeholder="Contraseña"
           />
+          </div>
         </div>
         <div>
           <button className="botones" type="submit">Crear cuenta</button>

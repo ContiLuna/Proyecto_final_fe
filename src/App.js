@@ -1,4 +1,3 @@
-import './App.css'
 import Registro from './components/FormRegister';
 
 function App() {
