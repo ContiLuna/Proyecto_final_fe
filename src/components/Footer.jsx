@@ -1,13 +1,14 @@
 import React from 'react'
+import './Footer.css'
 
 const Footer = () => {
 
     return(
-        <div className='main-footer text-white bg-dark'>
+        <div className='main-footer'>
             <div className="container">
                 <div className="row ">
                     <div className="col-md-4 col-sm-4">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvZki1EoCKV8aavs6hmPzqmnWUg-USH2qEiZSIhr3f6pa92z1DujPF10BHO8fXBI25zFY&usqp=CAU" 
+                        <img src="https://i.ibb.co/XpJsgPK/Ok-eslogan-191919.png" 
                         target='_blank' alt="Logo Team" width={'150px'} 
                         className='d-flex justify-content-center mx-auto mt-2'/>
                     </div>
@@ -29,7 +30,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-bottom">
                     <p className='text-center mt-2'>
-                        Copyright &copy;{new Date().getFullYear()} Todos los derechos reservados
+                        Copyright &copy;{new Date().getFullYear()} Dolphin Code | Todos los derechos reservados
                     </p>
                 </div>
             </div>
