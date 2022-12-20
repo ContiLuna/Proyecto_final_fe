@@ -21,25 +21,27 @@ const FormProducto = () => {
     e.preventDefault();
 
     let formData = new FormData();
-    formData.append('nombre', dataForm.nombre);
-    formData.append('estado', dataForm.estado);
-    formData.append('precio', dataForm.precio);
-    formData.append('detalle', dataForm.detalle);
-    formData.append('image', imgFile[0]);
-    formData.append('categoria', dataForm.categoria);
+    formData.append("nombre", dataForm.nombre);
+    formData.append("estado", dataForm.estado);
+    formData.append("precio", dataForm.precio);
+    formData.append("detalle", dataForm.detalle);
+    formData.append("image", imgFile[0]);
+    formData.append("categoria", dataForm.categoria);
     createProducts(formData);
   };
 
   return (
     <div className="form">
       <Form className="form-product" onSubmit={handleSubmit}>
-        <h2 className="form-title">Crear un producto nuevo</h2>
+        <div className="h2-contenedor">
+          <h2>Crear un producto nuevo<span className="h2-span">&#160;</span></h2>
+        </div>
         <div className="form-container">
           <FormGroup className="form-group">
             <Input
               className="form-input"
               name="nombre"
-              placeholder="Agregue un nombre"
+              placeholder=" "
               type="text"
               onChange={handleChange}
             />
@@ -64,7 +66,7 @@ const FormProducto = () => {
             <Input
               className="form-input"
               name="precio"
-              placeholder="Ingrese precio"
+              placeholder=" "
               type="number"
               onChange={handleChange}
             />
@@ -77,7 +79,7 @@ const FormProducto = () => {
             <Input
               className="form-input"
               name="detalle"
-              placeholder="Ingrese descripcion del menú"
+              placeholder=" "
               type="text"
               onChange={handleChange}
             />
@@ -107,9 +109,7 @@ const FormProducto = () => {
             </Input>
           </FormGroup>
 
-          <Button type="submit" className="form-submit">
-            Enviar
-          </Button>
+          <button class="custom-btn btn-13">Enviar</button>
         </div>
       </Form>
     </div>
