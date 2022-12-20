@@ -34,7 +34,7 @@ const FormProducto = () => {
     <div className="form">
       <Form className="form-product" onSubmit={handleSubmit}>
         <div className="h2-contenedor">
-          <h2>Crear un producto nuevo<span className="h2-span">&#160;</span></h2>
+          <h2>Crear un producto&#160;<span className="h2-span">&#160;</span></h2>
         </div>
         <div className="form-container">
           <FormGroup className="form-group">
