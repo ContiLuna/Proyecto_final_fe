@@ -1,13 +1,11 @@
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import Registro from './pages/Register';
-
+import './App.css'
+import Registro from './components/FormRegister';
 
 function App() {
   return (
-   <Routes> 
-    <Route path='/' element={<Registro />} />
-   </Routes>
+   <div className="App" >
+    <Registro />
+   </div>
   );
 }
 
