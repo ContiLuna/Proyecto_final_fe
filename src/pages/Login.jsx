@@ -31,9 +31,9 @@ const login = () => {
         <h2>Iniciar Sesion</h2>
         <div className="form-floating mb-3">
           <input
-            {...register("username", {required: "El campo es requerido", minLength: 10, maxLength:32 })}
+            {...register("email", {required: "El campo es requerido", minLength: 10, maxLength:32 })}
             type="email"
-            name="username"
+            name="email"
             className="form-control"
             id="floatingInput"
             placeholder="Email"

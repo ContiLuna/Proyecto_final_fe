@@ -18,7 +18,7 @@ import { LOGIN_USER, GET_USERS } from "./types";
 
 export const loginUser = async (data, navigate) => {
   try {
-    const login = await axiosInstance.post("", data);
+    const login = await axiosInstance.post("/login", data);
     localStorage.setItem("token", login.data.token);
     navigate("/home");
   } catch (error) {
