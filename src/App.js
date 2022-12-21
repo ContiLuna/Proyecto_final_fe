@@ -1,12 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import { Routes, Route } from 'react-router-dom';
-function App() {
+import carritodeCompras from './pages/App';
+
+function App () {
   return (
-   <Routes> 
-    <Route path='/' element={<h1>trabajen pues</h1>}/>
-   </Routes>
+   
+   <div className= "App" > 
+    < carritodeCompras />
+   </div>
+  
   );
 }
 
-export default App;
+export default carritodeCompras;
