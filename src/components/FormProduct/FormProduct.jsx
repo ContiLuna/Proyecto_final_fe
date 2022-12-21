@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
-import "../styles/crearProducto.css";
-import { createProducts } from "../context/UserActions";
+import "./crearProducto.css";
+import { createProducts } from "../../context/UserActions";
 
 const FormProducto = () => {
   const [dataForm, setDataForm] = useState({});
