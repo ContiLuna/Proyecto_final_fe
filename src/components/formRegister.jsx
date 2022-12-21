@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { axiosInstance } from "../config/InstanciAxios.js";
 import { } from "../styles/FormRegister.css";
-import { } from "./registro"
 
 const RegistroForm = () => {
   const { register, handleSubmit, formState: {errors} } = useForm();
@@ -18,12 +17,12 @@ const RegistroForm = () => {
 
   return (
     <div className="form">
-      <form className="in-form" onSubmit={handleSubmit(enviarFormulario)}>
+      <form className="in-form" id="form" onSubmit={handleSubmit(enviarFormulario)}>
         <div className="input" >
         <h1 className="registrarse">Registrarse</h1>
           <div>
           <input className="input"
-          {...register('nombre', {required: "el campo es requerido"})}
+          {...register('nombre')}
           type="text"
             name="nombre"
             id="nombre"
@@ -36,7 +35,7 @@ const RegistroForm = () => {
           {...register('email')}
             type="email"
             name="email"
-            id="u"
+            id="email"
             placeholder="Email"
             />
         </div>
@@ -45,12 +44,14 @@ const RegistroForm = () => {
           {...register('password')}
           type="password"
           name="password"
+          id="password"
           placeholder="Contraseña"
           />
           </div>
         </div>
         <div>
           <button className="botones" type="submit">Crear cuenta</button>
+          <p className="warnings" id="warnings" ></p>
         </div>
         <div>
             <button className="botones" type="">Iniciar Sesión</button>
