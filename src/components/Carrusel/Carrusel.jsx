@@ -11,6 +11,14 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./Carrusel.css"
+import Chori from "../../assets/images/Chori-argento.png"
+import Delivery from "../../assets/images/Delivery.png"
+import DeliPizza from "../../assets/images/Deli-pizza.png"
+import Empacknadas from "../../assets/images/Empacknadas.png"
+import FreshAndTasty from "../../assets/images/Fresh-&-tasty-food.png"
+import MenuEspecial from "../../assets/images/Menú-especial.png"
+import Promos from "../../assets/images/Promos-mundialistas.png"
+import Scaloburguer from "../../assets/images/Scaloburguer.png"
 
 const Carrusel = () => {
   return (
@@ -32,22 +40,57 @@ const Carrusel = () => {
       <SwiperSlide>
         <img
           className="img__carrusel"
-          src="https://images.pexels.com/photos/1447092/pexels-photo-1447092.png?cs=srgb&dl=pexels-thanhhoa-tran-1447092.jpg&fm=jpg"
-          alt=""
+          src={Chori}
+          alt="Chori-argento"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           className="img__carrusel"
-          src="http://www.nasa.gov/sites/default/files/thumbnails/image/web_first_images_release_0.png"
-          alt=""
+          src={Delivery}
+          alt="Delivery"
         />
       </SwiperSlide>
       <SwiperSlide>
         <img
           className="img__carrusel"
-          src="https://www.tooltyp.com/wp-content/uploads/2014/10/1900x920-8-beneficios-de-usar-imagenes-en-nuestros-sitios-web.jpg"
-          alt=""
+          src={DeliPizza}
+          alt="DeliPizza"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="img__carrusel"
+          src={Empacknadas}
+          alt="Empacknadas"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="img__carrusel"
+          src={FreshAndTasty}
+          alt="Fresh-&-tasty-food"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="img__carrusel"
+          src={MenuEspecial}
+          alt="Menú-especial"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="img__carrusel"
+          src={Promos}
+          alt="Promos-mundialistas"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <img
+          className="img__carrusel"
+          src={Scaloburguer}
+          alt="Scaloburguer"
         />
       </SwiperSlide>
     </Swiper>
