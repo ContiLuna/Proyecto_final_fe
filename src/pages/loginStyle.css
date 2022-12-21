@@ -1,0 +1,47 @@
+.container-login {
+    width: 400px;
+    height: 500px;
+    max-width: 1200px;
+    margin: 0px auto;
+    margin-top: 150px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login input {
+    font-size: 1.5rem;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.login h2 {
+    margin: 35px 0px;
+    color: white;
+}
+.login button {
+    margin-bottom: 15px;
+    font-size: 22px;
+    border-radius: 20px;
+}
+.form-floating {
+    width: 100%;
+}
+@media (max-width:500px) {
+    .container-login {
+        width: 95%;
+    }
+}
+.error-email {
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
+.error-pw {
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+}
