@@ -6,14 +6,23 @@ import CrearProducto from './pages/CrearProducto'
 import Registro from './components/formRegister';
 import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
-import Usuarios from "./pages/Admin/Usuarios";
+import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
+import Admin from "./pages/Admin/Admin";
 import Menu from "./pages/Admin/Menu";
 import RutasPrivadas from "./Routes/Rutas";
-import Admin from "./pages/Admin/Admin";
-
+import { useContext, useEffect } from "react";
+import UserContext from "./context/UserContext";
+import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 
 function App() {
   const location = useLocation();
+  const { state, dispatch } = useContext(UserContext);
+    useEffect(() => {
+      dispatch(getAllUsers());
+      dispatch(getAllProducts());
+      dispatch(getAllPedidos());
+      dispatch(getAllCategorias());
+    }, []);
   return (
     <>
       <NavBar />
@@ -26,6 +35,7 @@ function App() {
           <Route path='/admin' element={<Admin />} />
           <Route path='/admin/menus' element={<Menu />} />
         </Route>
+        <Route path='*' element={<PaginaError404 />} />
       </Routes>
       {
         location.pathname.includes('admin') ? null : <Footer />
