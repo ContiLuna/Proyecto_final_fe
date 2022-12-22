@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useForm } from 'react-hook-form'
 import { axiosInstance } from "../config/InstanciAxios.js";
-import "../Styles/FormRegister.css";
+import "../styles/FormRegister.css";
 import "./registro"
 
 const RegistroForm = () => {

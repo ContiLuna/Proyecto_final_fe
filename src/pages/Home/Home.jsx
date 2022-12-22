@@ -1,8 +1,11 @@
-import React from 'react'
-import Carrusel from '../../components/Carrusel/Carrusel';
-import Productos from '../../components/Productos/Productos';
-import Sugerencias from '../../components/Sugerencias/Sugerencias';
-import "./Home.css"
+import React, { useContext } from "react";
+import Card from "../../components/Card/Card";
+import Carrusel from "../../components/Carrusel/Carrusel";
+import Productos from "../../components/Productos/Productos";
+// import Sugerencias from "../../components/Sugerencias/Sugerencias";
+import UserContext from "../../context/UserContext";
+// import { menus } from "../../dataUsuarios";
+import "./Home.css";
 
 const productos = [
   {
@@ -25,14 +28,17 @@ const productos = [
   },
 ];
 
-const sug = [1,2,3,4,5,6,7,8]
-
 const Home = () => {
+  const { state, dispatch } = useContext(UserContext);
+  console.log(state.productos);
   return (
     <div>
-        <div className="home__carrusel" style={{height:"calc(100% - 60px)", marginBottom: "20px"}}>
-            <Carrusel />
-        </div>
+      <div
+        className="home__carrusel"
+        style={{ height: "calc(100% - 60px)", marginBottom: "20px" }}
+      >
+        <Carrusel />
+      </div>
       <div className="home__producto">
         <div className="home__producto__title">
           <h1>Consulta nuestros Productos</h1>
@@ -45,18 +51,22 @@ const Home = () => {
       </div>
       <div>
         <div className="home__producto__title">
-            <h1>Nuestras Sugerencias</h1>
+          <h1>Nuestras Sugerencias</h1>
         </div>
         <div className="sugerencias">
-            {
-                sug.map((sug) => (
-                    <Sugerencias key={sug} />
-                ))
-            }
+          {state?.productos?.map((menu) => (
+            <Card
+              key={menu.id}
+              title={menu.nombre}
+              description={menu.detalle}
+              price={menu.precio}
+              img={menu.imagen}
+            />
+          ))}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
