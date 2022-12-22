@@ -1,4 +1,4 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'https://proyectofinalbe-production.up.railway.app/';
 export const axiosInstance = axios.create();

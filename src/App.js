@@ -13,6 +13,7 @@ import RutasPrivadas from "./Routes/Rutas";
 import { useContext, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
+import Pedidos from "./pages/App";
 
 function App() {
   const location = useLocation();
@@ -31,6 +32,7 @@ function App() {
         <Route path='/crearProducto' element={<CrearProducto />} />
         <Route path='/registro' element={<Registro />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/pedidos' element={<Pedidos />} />
         <Route element={<RutasPrivadas />}>
           <Route path='/admin' element={<Admin />} />
           <Route path='/admin/menus' element={<Menu />} />
