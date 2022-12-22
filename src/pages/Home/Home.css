@@ -1,0 +1,27 @@
+.home__producto {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.home__producto__title {
+    background-color: #7DD0BE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    text-align: center;
+    color: white;
+}
+.home__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.sugerencias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

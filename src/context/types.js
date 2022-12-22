@@ -1,0 +1,5 @@
+export const LOGIN_USER = "LOGIN_USER"
+export const GET_ALL_USERS = "GET_ALL_USERS"
+export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"
+export const GET_ALL_PEDIDOS = "GET_ALL_PEDIDOS"
+export const GET_ALL_CATEGORIAS = "GET_ALL_CATEGORIAS"
