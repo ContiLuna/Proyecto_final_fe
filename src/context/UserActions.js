@@ -180,3 +180,28 @@ export const getAllCategorias = async () => {
     payload: response.data.categorias,
   }
 }
+
+export const cambiarEstadoPedido = async (id, valor, dispatch) => {
+  const body = {
+    estado: valor
+  }
+  const token = localStorage.getItem("token");
+  try {
+    await axiosInstance.patch(`/pedido/${id}`, body, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+    });
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El estado del pedido ha cambiado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllPedidos());
+  }
+}

@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DataTable from "react-data-table-component";
+import { cambiarEstadoPedido } from "../../context/UserActions";
+import UserContext from "../../context/UserContext";
 import { pedidos } from "../../dataUsuarios";
 
 const TablaPedidos = () => {
+  const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
-  const [filtered, setFiltered] = useState(pedidos);
+  const [filtered, setFiltered] = useState(state?.pedidos);
+  console.log(state?.pedidos)
 
   const searchFilter = (search) => {
     setSearch(search);
@@ -17,7 +21,7 @@ const TablaPedidos = () => {
   const columns = [
     {
       name: "Usuario",
-      selector: (row) => row.usuario,
+      selector: (row) => row.usuario.nombre,
       sortable: true,
     },
     {
@@ -25,11 +29,11 @@ const TablaPedidos = () => {
       selector: (row) => row.fecha,
       sortable: true,
     },
-    {
-      name: "Menu",
-      selector: (row) => row.menu,
-      sortable: true,
-    },
+    // {
+    //   name: "Menu",
+    //   selector: (row) => row.menu,
+    //   sortable: true,
+    // },
     {
       name: "Estado",
       selector: (row) => row.estado,
@@ -43,7 +47,7 @@ const TablaPedidos = () => {
         return (
           <div>
             {row.estado === "pendiente" ? (
-              <button className="btn btn-primary">Entregar</button>
+              <button onClick={() => cambiarEstadoPedido(row._id, "confirmado", dispatch)} className="btn btn-primary">Entregar</button>
             ) : (
               ""
             )}

@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import Card from "../../components/Card/Card";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import Productos from "../../components/Productos/Productos";
-import Sugerencias from "../../components/Sugerencias/Sugerencias";
+// import Sugerencias from "../../components/Sugerencias/Sugerencias";
 import UserContext from "../../context/UserContext";
-import { menus } from "../../dataUsuarios";
+// import { menus } from "../../dataUsuarios";
 import "./Home.css";
 
 const productos = [
