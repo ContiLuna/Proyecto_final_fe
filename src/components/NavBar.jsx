@@ -31,13 +31,11 @@ function NavBar() {
                 </Link>
                 <Link to='/login'>
                   <Button type='button' 
-                  className='btn btn-dark container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'
-                  data-bs-toggle="collapse" data-bs-target='Navbar.Collapse.show'>Registro</Button>
+                  className='btn btn-dark container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'>Registro</Button>
                 </Link>
                 {/* <Link to='/login'>
                   <Button type='button' 
-                  className='btn btn-dark container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'
-                  data-bs-toggle="collapse" data-bs-target='Navbar.Collapse.show'>Cerrar Sesión</Button>
+                  className='btn btn-dark container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'>Cerrar Sesión</Button>
                 </Link> */}
               </Nav>
           </Navbar.Collapse>
