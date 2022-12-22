@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DataTable from "react-data-table-component";
-import { usuarios } from "../../dataUsuarios";
+import UserContext from "../../context/UserContext";
 
 const TablaUsuarios = () => {
-
+  const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
-  const [filtered, setFiltered] = useState(usuarios);
+  const [filtered, setFiltered] = useState(state?.users);
 
   const searchFilter = (search) => {
     setSearch(search);
-    const filtered = usuarios.filter((user) => {
-      return user.username.toLowerCase().includes(search.toLowerCase());
+    const filtered = state?.users?.filter((user) => {
+      return user.email.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
   };
@@ -23,7 +23,7 @@ const TablaUsuarios = () => {
     },
     {
       name: "Email",
-      selector: (row) => row.username,
+      selector: (row) => row.email,
       sortable: true,
     },
     {

@@ -9,7 +9,7 @@ const TablaPedidos = () => {
   const searchFilter = (search) => {
     setSearch(search);
     const filtered = pedidos.filter((pedido) => {
-      return pedido.name.toLowerCase().includes(search.toLowerCase());
+      return pedido.usuario.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
   };
@@ -65,7 +65,7 @@ const TablaPedidos = () => {
         <input
           className="search__input"
           type="text"
-          placeholder="buscar pedidos por email"
+          placeholder="buscar pedidos por usuario"
           value={search}
           onChange={(e) => searchFilter(e.target.value)}
         />

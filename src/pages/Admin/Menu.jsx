@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import "./admin.css"
 import FormProducto from '../../components/FormProduct/FormProduct'
 import ModalReact, { ModalBodyReact, ModalHeaderReact } from '../../components/Modal/ModalReact'
 import TablaMenu from '../../components/Tablas/TablaMenu'
@@ -8,8 +9,8 @@ const Menu = () => {
   return (
     <>
     <div style={{height: "calc(90vh - 60px)"}}>
-        <div>
-            <button onClick={() => setShowModal(!showModal)}>Crear Menu</button>
+        <div className='container__button__createMenu'>
+            <button className='button__createMenu' onClick={() => setShowModal(!showModal)}>Crear Menu</button>
         </div>
         <div>
             <TablaMenu />

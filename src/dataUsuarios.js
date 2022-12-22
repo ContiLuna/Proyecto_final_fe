@@ -68,7 +68,7 @@ export const menus = [
     },
     {
         id: 2,
-        nombre: "Pizza",
+        nombre: "Deli Pizza",
         precio: 150,
         detalle: "Pizza con queso y tomate",
         imagen: "https://www.clarin.com/img/2022/05/27/la-hamburguesa-mucho-mas-que___0HXb0UR0v_2000x1500__1.jpg",

@@ -1,5 +1,4 @@
 .img__carrusel {
     width: 100%;
-    height: calc(90vh - 60px);
-    object-fit: fill;
+    object-fit: cover;
 }

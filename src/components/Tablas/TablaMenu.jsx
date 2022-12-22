@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DataTable from "react-data-table-component";
 import { menus } from "../../dataUsuarios";
+import { FaRegEdit, FaRegTrashAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import UserContext from "../../context/UserContext";
 
 const TablaMenu = () => {
+  const {state, dispatch} = useContext(UserContext);
   const [search, setSearch] = useState("");
-  const [filtered, setFiltered] = useState(menus);
+  const [filtered, setFiltered] = useState(state?.productos);
 
   const searchFilter = (search) => {
     setSearch(search);
-    const filtered = menus.filter((user) => {
+    const filtered = state?.productos?.filter((user) => {
       return user.nombre.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
@@ -53,9 +56,16 @@ const TablaMenu = () => {
       sortable: true,
       cell: (row) => {
         return (
-          <div>
-            <button className="btn btn-primary">Editar</button>
-            <button className="btn btn-danger">Eliminar</button>
+          <div style={{width:"200px", display:"flex", justifyContent: "space-between"}}>
+            <button className="btn btn-primary"><FaRegEdit /></button>
+            <button className="btn btn-danger"><FaRegTrashAlt /></button>
+            {
+              row.estado ? (
+                <button className="btn btn-warning"><FaChevronDown /></button>
+              ) : (
+                <button className="btn btn-success"><FaChevronUp /></button>
+              )
+            }
           </div>
         );
       },
