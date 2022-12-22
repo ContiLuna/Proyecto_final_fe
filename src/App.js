@@ -4,9 +4,12 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-   <Routes> 
-    <Route path='/' element={<Footer/>}/>
-   </Routes>
+    <div>
+      <Footer />
+      <Routes> 
+    
+      </Routes>
+    </div>
   );
 }
 
