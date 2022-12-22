@@ -14,13 +14,13 @@ function NavBar() {
         <Container fluid>
           <Navbar.Brand>
             <Link to="/">
-            <img src="https://i.ibb.co/x27ShPx/Ok-food-191919.png" alt="Logo" width={'50px'}/>
+            <img src="https://i.ibb.co/x27ShPx/Ok-food-191919.png" alt="Logo" width={'50px'} className='mx-auto mx-sm-1 mx-xl-3 mx-xxl-5'/>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle onClick={()=> setNavExpanded(!NavExpanded)} aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
               <Nav onClick={()=> setNavExpanded(false)} 
-              className='container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'>
+              className='container gap-1 mx-1 mx-sm-auto mx-xxl-7 flex-column flex-sm-row justify-content-center justify-content-sm-end'>
                 <Nav.Link as={Link} to='/' className='d-inline-flex justify-content-center'
                 >Home</Nav.Link>
                 <Nav.Link as={Link} to='/pedidos' className='d-inline-flex justify-content-center'
