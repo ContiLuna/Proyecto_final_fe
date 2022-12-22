@@ -1,4 +1,4 @@
-import {LOGIN_USER, GET_ALL_USERS, GET_ALL_PRODUCTS, GET_ALL_PEDIDOS} from "./types"
+import {LOGIN_USER, GET_ALL_USERS, GET_ALL_PRODUCTS, GET_ALL_PEDIDOS, GET_ALL_CATEGORIAS} from "./types"
 
 export const UserReducer = (state, action) => {
   switch (action.type) {
@@ -21,6 +21,11 @@ export const UserReducer = (state, action) => {
         return {
             ...state,
             pedidos: action.payload
+        }
+      case GET_ALL_CATEGORIAS:
+        return {
+            ...state,
+            categorias: action.payload
         }
     default:
         return state;

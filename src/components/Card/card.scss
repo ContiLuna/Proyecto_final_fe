@@ -25,11 +25,18 @@
     flex-direction: column;
   }
   &__title {
-    line-height: 1.4rem;
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0.5rem;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
   }
   &__description {
     line-height: 1.2rem;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
   }
   &__price {
     font-size: 1.4rem;

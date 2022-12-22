@@ -35,7 +35,7 @@ const Carrusel = () => {
       //spaceBetween={50}
       //slidesPerView={3}
       onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
+      onSwiper={(swiper) => console.log("slide change")}
     >
       <SwiperSlide>
         <img

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/Navigation/NavBar";
 import Footer from './components/Footer/Footer';
@@ -8,8 +8,12 @@ import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
 import Usuarios from "./pages/Admin/Usuarios";
 import Menu from "./pages/Admin/Menu";
+import RutasPrivadas from "./Routes/Rutas";
+import Admin from "./pages/Admin/Admin";
+
 
 function App() {
+  const location = useLocation();
   return (
     <>
       <NavBar />
@@ -18,10 +22,14 @@ function App() {
         <Route path='/crearProducto' element={<CrearProducto />} />
         <Route path='/registro' element={<Registro />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/admin' element={<Usuarios />} />
-        <Route path='/admin/menus' element={<Menu />} />
+        <Route element={<RutasPrivadas />}>
+          <Route path='/admin' element={<Admin />} />
+          <Route path='/admin/menus' element={<Menu />} />
+        </Route>
       </Routes>
-      <Footer/>
+      {
+        location.pathname.includes('admin') ? null : <Footer />
+      }
     </>
   );
 }

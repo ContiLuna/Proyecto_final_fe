@@ -3,11 +3,17 @@ import DataTable from "react-data-table-component";
 import { menus } from "../../dataUsuarios";
 import { FaRegEdit, FaRegTrashAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import UserContext from "../../context/UserContext";
+import { cambiarEstadoProducto, deleteMenu } from "../../context/UserActions";
+import ModalReact, { ModalBodyReact, ModalHeaderReact } from "../Modal/ModalReact";
+import EditMenu from "../EditMenu/EditMenu";
+
 
 const TablaMenu = () => {
   const {state, dispatch} = useContext(UserContext);
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState(state?.productos);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedRow, setSelectedRow] = useState({});
 
   const searchFilter = (search) => {
     setSearch(search);
@@ -15,6 +21,10 @@ const TablaMenu = () => {
       return user.nombre.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
+  };
+  const selectedProduct = (row) => {
+    setSelectedRow(row);
+    setShowModal(!showModal);
   };
   const columns = [
     {
@@ -57,13 +67,13 @@ const TablaMenu = () => {
       cell: (row) => {
         return (
           <div style={{width:"200px", display:"flex", justifyContent: "space-between"}}>
-            <button className="btn btn-primary"><FaRegEdit /></button>
-            <button className="btn btn-danger"><FaRegTrashAlt /></button>
+            <button onClick={() => selectedProduct(row)} className="btn btn-primary"><FaRegEdit /></button>
+            <button onClick={() => deleteMenu(row._id, dispatch)} className="btn btn-danger"><FaRegTrashAlt /></button>
             {
               row.estado ? (
-                <button className="btn btn-warning"><FaChevronDown /></button>
+                <button onClick={() => cambiarEstadoProducto(row._id, false, dispatch)} className="btn btn-warning"><FaChevronDown /></button>
               ) : (
-                <button className="btn btn-success"><FaChevronUp /></button>
+                <button onClick={() => cambiarEstadoProducto(row._id, true, dispatch)} className="btn btn-success"><FaChevronUp /></button>
               )
             }
           </div>
@@ -98,6 +108,15 @@ const TablaMenu = () => {
         paginationComponentOptions={paginationOptions}
         highlightOnHover
       />
+      <ModalReact show={showModal} setShow={setShowModal}>
+        <ModalHeaderReact>
+          Editar Menu
+        </ModalHeaderReact>
+        <ModalBodyReact>
+          {/* <FormProducto /> */}
+          <EditMenu menu={selectedRow} setShowModal={setShowModal} />
+        </ModalBodyReact>
+      </ModalReact>
     </div>
   );
 };

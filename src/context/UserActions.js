@@ -1,5 +1,5 @@
 import { axiosInstance } from "../config/axiosInstance";
-import { GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER } from "./types";
+import { GET_ALL_CATEGORIAS, GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER } from "./types";
 import Swal from 'sweetalert2';
 
 export const createProducts = async (formData) => {
@@ -26,7 +26,13 @@ export const loginUser = async (data, navigate) => {
   try {
     const login = await axiosInstance.post("/login", data);
     localStorage.setItem("token", login.data.token);
-    navigate("/home");
+    localStorage.setItem("user", JSON.stringify(login.data.user));
+    if(login.data.user.rol === "admin"){
+      navigate("/admin");
+    }else{
+      navigate("/");
+    }
+    
   } catch (error) {
     console.log(error);
   }
@@ -41,7 +47,6 @@ export const getAllUsers = async () => {
   let response;
   try {
     response = await axiosInstance.get("/alluser");
-    console.log(response.data.users)
   } catch (error) {
     console.log(error);
   }
@@ -55,7 +60,6 @@ export const getAllProducts = async () => {
   let response;
   try {
     response = await axiosInstance.get("/menu");
-    console.log(response.data.menus)
   } catch (error) {
     console.log(error);
   }
@@ -69,12 +73,110 @@ export const getAllPedidos = async () => {
   let response;
   try {
     response = await axiosInstance.get("/pedido");
-    console.log(response.data.pedidos)
   } catch (error) {
     console.log(error);
   }
   return {
     type: GET_ALL_PEDIDOS,
     payload: response.data.pedidos,
+  }
+}
+
+export const cambiarEstadoUsuario = async (id, valor, dispatch) => {
+  const body = {
+    estado: valor
+  }
+  try {
+    await axiosInstance.patch(`/user/${id}`, body);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El estado del usuario ha cambiado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllUsers());
+  }
+}
+
+export const cambiarEstadoProducto = async (id, valor, dispatch) => {
+  const body = {
+    estado: valor
+  }
+  try {
+    await axiosInstance.patch(`/menu/${id}`, body);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El estado del  ha cambiado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllProducts());
+  }
+}
+
+export const deleteMenu = async (id, dispatch) => {
+  try {
+    await axiosInstance.delete(`/menu/${id}`);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El producto ha sido eliminado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllProducts());
+  }
+}
+
+export const actualizarMenu = async (id, formData, dispatch, setShowModal) => {
+  try {
+    await axiosInstance.put(`/menu/${id}`, formData);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'El producto ha sido actualizado!'
+    })
+    setShowModal(false);
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllProducts());
+  }
+}
+
+
+export const getAllCategorias = async () => {
+  let response;
+  try {
+    response = await axiosInstance.get("/categorias");
+    console.log(response.data.categorias)
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: GET_ALL_CATEGORIAS,
+    payload: response.data.categorias,
   }
 }

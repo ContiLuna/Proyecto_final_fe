@@ -6,6 +6,7 @@ export const initialState = {
     users: [],
     isLogged: false,
     pedidos: [],
+    categorias: [],
   }
   
   export const UserContext = createContext({

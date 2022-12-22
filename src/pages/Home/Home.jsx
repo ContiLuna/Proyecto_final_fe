@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../../components/Card/Card";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import Productos from "../../components/Productos/Productos";
 import Sugerencias from "../../components/Sugerencias/Sugerencias";
+import UserContext from "../../context/UserContext";
 import { menus } from "../../dataUsuarios";
 import "./Home.css";
 
@@ -28,6 +29,8 @@ const productos = [
 ];
 
 const Home = () => {
+  const { state, dispatch } = useContext(UserContext);
+  console.log(state.productos);
   return (
     <div>
       <div
@@ -51,7 +54,7 @@ const Home = () => {
           <h1>Nuestras Sugerencias</h1>
         </div>
         <div className="sugerencias">
-          {menus.map((menu) => (
+          {state?.productos?.map((menu) => (
             <Card
               key={menu.id}
               title={menu.nombre}

@@ -1,15 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
+import { cambiarEstadoUsuario, getAllUsers } from "../../context/UserActions";
 import UserContext from "../../context/UserContext";
 
-const TablaUsuarios = () => {
+
+const TablaUsuarios = ({usuarios}) => {
   const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
-  const [filtered, setFiltered] = useState(state?.users);
+  const [filtered, setFiltered] = useState(usuarios);
 
   const searchFilter = (search) => {
     setSearch(search);
-    const filtered = state?.users?.filter((user) => {
+    const filtered = usuarios.filter((user) => {
       return user.email.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
@@ -44,9 +46,9 @@ const TablaUsuarios = () => {
         return (
           <div>
             {row.estado === false ? (
-              <button className="btn btn-primary">Activar</button>
+              <button onClick={() => cambiarEstadoUsuario(row._id, true, dispatch)} className="btn btn-primary">Activar</button>
             ) : (
-              <button className="btn btn-danger">Inhabilitar</button>
+              <button onClick={() => cambiarEstadoUsuario(row._id, false, dispatch)} className="btn btn-danger">Inhabilitar</button>
             )}
           </div>
         );
@@ -61,6 +63,11 @@ const TablaUsuarios = () => {
         selectAllRowsItem: true,
         selectAllRowsItemText: "Todos",
       };
+
+      useEffect(() => {
+        dispatch(getAllUsers());
+      }, [filtered])
+      
 
   return (
     <div style={{ padding: "40px 20px" }}>
