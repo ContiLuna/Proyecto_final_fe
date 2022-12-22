@@ -11,18 +11,18 @@ function NavBar() {
     return (
       <Navbar collapseOnSelect expand="sm" sticky="top" className='Navbcss'>
         <Container fluid>
-          <Navbar.Brand className='' href="#"><img 
+          <Navbar.Brand className='' href="/"><img 
           src="https://i.ibb.co/x27ShPx/Ok-food-191919.png"
           alt="Logo" width={'50px'}/></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end" 
               style={{ maxHeight: '100%' }}>
-              <Nav.Link href="#action1" className='d-inline-flex justify-content-center'>Home</Nav.Link>
-              <Nav.Link href="#action2" className='d-inline-flex justify-content-center'>Pedidos</Nav.Link>
-              <Button type='button' 
+              <Nav.Link href="/" className='d-inline-flex justify-content-center'>Home</Nav.Link>
+              <Nav.Link href="/pedidos" className='d-inline-flex justify-content-center'>Pedidos</Nav.Link>
+              <Button type='button' href='/login' 
               className="btn btn-dark">Ingresar</Button>
-              <Button type='button'
+              <Button type='button'  href='/registro' 
               className="btn btn-dark">Registro</Button>
             </Nav>
           </Navbar.Collapse>
