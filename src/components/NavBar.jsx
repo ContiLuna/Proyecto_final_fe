@@ -8,22 +8,22 @@ import "./NavBar.css";
 
 
 function NavBar() {
-  const [expanded, setExpanded] = useState(false);
+  const [NavExpanded, setNavExpanded] = useState(false);
     return (
-      <Navbar expanded={expanded} expand="sm" sticky="top" className='Navbcss'>
+      <Navbar expanded={NavExpanded} expand="sm" sticky="top" className='Navbcss'>
         <Container fluid>
           <Navbar.Brand>
             <Link to="/">
             <img src="https://i.ibb.co/x27ShPx/Ok-food-191919.png" alt="Logo" width={'50px'}/>
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle onClick={()=> setExpanded(!expanded)} aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle onClick={()=> setNavExpanded(!NavExpanded)} aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav onClick={()=> setTimeout(()=> {setExpanded(false)}, 50)} 
+              <Nav onClick={()=> setNavExpanded(false)} 
               className='container gap-1 flex-column flex-sm-row justify-content-center justify-content-sm-end'>
-                <Nav.Link as={Link} to='/' href='/' className='d-inline-flex justify-content-center'
+                <Nav.Link as={Link} to='/' className='d-inline-flex justify-content-center'
                 >Home</Nav.Link>
-                <Nav.Link as={Link} to='/pedidos' href='/pedidos' className='d-inline-flex justify-content-center'
+                <Nav.Link as={Link} to='/pedidos' className='d-inline-flex justify-content-center'
                 >Pedidos</Nav.Link>
                 <Link to='/login'>
                   <Button type='button' 
