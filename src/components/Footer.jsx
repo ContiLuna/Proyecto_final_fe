@@ -22,14 +22,14 @@ const Footer = () => {
                     <div className="col-md-4 col-sm-4">
                         <h4 className='h4redes text-center mt-2 text-black'>Seguinos en nuestras redes</h4>
                         <ul className='list-unstyled d-flex justify-content-between m-4'>
-                            <a href="https://facebook.com" target='_blank' rel='noreferrer' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></a>
-                            <a href="https://instagram.com" target='_blank' rel='noreferrer' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></a>
-                            <a href="https://twitter.com" target='_blank' rel='noreferrer' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></a>
+                            <a href="https://facebook.com" target='_blank' rel='noreferrer noopener' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></a>
+                            <a href="https://instagram.com" target='_blank' rel='noreferrer noopener' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></a>
+                            <a href="https://twitter.com" target='_blank' rel='noreferrer noopener' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></a>
                         </ul>
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p className='text-center mt-2'>
+                    <p className='text-center m-0'>
                         Copyright &copy;{new Date().getFullYear()} Dolphin Code | Todos los derechos reservados
                     </p>
                 </div>
