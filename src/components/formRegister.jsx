@@ -83,7 +83,7 @@ const RegistroForm = () => {
               </div>
             )}
           </div>
-          <div className="input-container">
+          <div className="input-container-register">
             <input className="input"
               {...register('password', { required: "La contraseña es requerida" })}
               type={showPassword ? 'text' : 'password'}
@@ -101,7 +101,7 @@ const RegistroForm = () => {
               </div>
             )}
           </div>
-          <div className="input-container">
+          <div className="input-container-register">
             <input className="input"
               {...register('passwordConfirmation', { required: "Debe confirmar su contraseña" })}
               type={showPasswordConfirm ? 'text' : 'password'}

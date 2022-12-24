@@ -5,10 +5,11 @@
     font-family: 'Poppins', sans-serif;
 } */
 .form-register {
-    height: 900px;
+    min-height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
 }
 
 h1 {
@@ -77,11 +78,11 @@ input:focus {
     }
 }
 
-.input-container {
+.input-container-register {
     position: relative;
 }
 
-.input-container button {
+.input-container-register button {
     position: absolute;
     right: -20px;
     top: 30px;
