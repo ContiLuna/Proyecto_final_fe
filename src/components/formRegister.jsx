@@ -30,7 +30,9 @@ const RegistroForm = () => {
   const enviarFormulario = async (data) => {
 
     if (data.password !== data.passwordConfirmation) {
-      alert("Las contraseñas deben coincidir")
+      errors.passwordConfirmation = {
+        message:"Las contraseñas deben coincidir"
+      }
       return;
     }
 
@@ -73,7 +75,9 @@ const RegistroForm = () => {
               type="email"
               name="email"
               id="u"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
               placeholder="Email"
+              title="Ingresa un mail valido"
             />
             {errors && errors.email && (
               <div class="alert alert-danger" role="alert" style={{ display: errors.email.message ? 'block' : 'none' }}>
