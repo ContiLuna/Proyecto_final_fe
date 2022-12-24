@@ -30,15 +30,13 @@ const RegistroForm = () => {
   const enviarFormulario = async (data) => {
 
     if (data.password !== data.passwordConfirmation) {
-      errors.passwordConfirmation = {
-        message:"Las contraseñas deben coincidir"
-      }
+      //Terminar, todavia no muestra el mensaje en la pantalla
       return;
     }
 
     const usuarioExiste = await verificarUsuarioExistente(data.email);
     if (usuarioExiste) {
-      alert("el usuario ya existe");
+      //Terminar, todavia no muestra el mensaje en la pantalla
       return;
     }
 
