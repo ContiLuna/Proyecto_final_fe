@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import "./loginStyle.css";
@@ -8,6 +8,13 @@ import { loginUser } from "../context/UserActions";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const setHidePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const { state, dispatch } = useContext(UserContext);
   const {
     register,
@@ -44,18 +51,21 @@ const Login = () => {
           <span className="error-email">{errors?.email?.message}</span>
           <label htmlFor="floatingInput">Email</label>
         </div>
-        <div className="form-floating mb-3">
+        <div className="form-floating mb-3 input-container">
           <input
             {...register("password", {
               required: "Campo requerido",
               maxLength: 20,
             })}
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
             className="form-control"
             id="floatingPassword"
             placeholder="Contraseña"
           />
+          <button className="show-hide" type="button" onClick={setHidePassword}>
+              {showPassword ? <i class="bi bi-eye-slash-fill"></i> : <i class="bi bi-eye-fill"></i>}
+            </button>
           <span className="error-pw">{errors?.password?.message}</span>
           <label htmlFor="floatingPassword">Contraseña</label>
         </div>
