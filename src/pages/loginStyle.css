@@ -44,3 +44,19 @@
     padding: 2px;
     border-radius: 5px;
 }
+
+.input-container {
+    position: relative;
+}
+
+.input-container button {
+    position: absolute;
+    right: 0px;
+    top: 12px;
+}
+
+.show-hide{
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+}

@@ -4,38 +4,38 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 } */
-.form{
-    height: 900px;
+.form-register {
+    min-height: 900px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0;
 }
 
-h1{
+h1 {
     text-align: center;
     font-weight: 400;
     position: relative;
     right: -12.5px;
 }
 
-.in-form{
+.in-form {
     background: #EDB195;
     padding: 10px 0 40px 0;
-    box-shadow: 1px 25px 50px 0 rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
-.form{
+.form-register {
     width: 100%;
     margin: auto;
 }
 
-form .input{
+form .input {
     position: relative;
     margin: 45px;
 }
 
-input{
+input {
     background: none;
     color: #c6c6c6;
     font-size: 18px;
@@ -46,12 +46,12 @@ input{
     border-bottom: 1px solid black;
 }
 
-input:focus{
+input:focus {
     outline: none;
     color: #5e5d5d;
 }
 
-.input{
+.input {
     color: #191919;
     font-size: 16px;
     position: absolute;
@@ -59,7 +59,7 @@ input:focus{
     top: 10px;
 }
 
-.botones{
+.botones {
     background: #4042;
     border: none;
     display: block;
@@ -73,9 +73,22 @@ input:focus{
 }
 
 @media screen and (max-width: 500px) {
-    form{
+    form {
         width: 80%;
     }
 }
 
+.input-container-register {
+    position: relative;
+}
 
+.input-container-register button {
+    position: absolute;
+    right: -20px;
+    top: 30px;
+}
+
+.show-hide{
+    border: none;
+    border-radius: 50%;
+}
