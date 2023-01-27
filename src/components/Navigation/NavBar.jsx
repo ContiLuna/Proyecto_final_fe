@@ -20,13 +20,15 @@ function NavBar() {
   return (
     <Navbar collapseOnSelect expand="sm" sticky="top" className="Navbcss">
       <Container fluid>
-        <Navbar.Brand className="" href="#">
+        <Link to="/">
+        <Navbar.Brand>
           <img
             src="https://i.ibb.co/x27ShPx/Ok-food-191919.png"
             alt="Logo"
             width={"50px"}
           />
         </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav
