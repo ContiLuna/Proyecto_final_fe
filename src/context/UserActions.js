@@ -45,8 +45,13 @@ export const loginUser = async (data, navigate) => {
 
 export const getAllUsers = async () => {
   let response;
+  const token = localStorage.getItem("token");
   try {
-    response = await axiosInstance.get("/alluser");
+    response = await axiosInstance.get("/alluser", {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
