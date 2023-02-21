@@ -35,6 +35,7 @@ const Card = (props) => {
           description={props.description}
           price={props.price}
           img={props.img}
+          menuId={props.menuId}
           />
         </ModalBodyReact>
       </ModalReact>

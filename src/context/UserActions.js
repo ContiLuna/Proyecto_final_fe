@@ -74,6 +74,21 @@ export const getAllProducts = async () => {
   }
 }
 
+export const crearPedido = async (data) => {
+  try {
+    await axiosInstance.post("/pedido", data);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Pedido realizado con exito',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getAllPedidos = async () => {
   let response;
   try {

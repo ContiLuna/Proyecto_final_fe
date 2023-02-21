@@ -1,7 +1,19 @@
+.form-pedidos {
+    background-color: #fff;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    text-align: center;
+    align-items: center;
+}
+
 .btn-pedido{
     background-color: #51439A;
     padding: 15px;
     border-radius: 50px;
+    color: #fff;
 }
 
 .btn-solid{
