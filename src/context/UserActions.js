@@ -45,8 +45,13 @@ export const loginUser = async (data, navigate) => {
 
 export const getAllUsers = async () => {
   let response;
+  const token = localStorage.getItem("token");
   try {
-    response = await axiosInstance.get("/alluser");
+    response = await axiosInstance.get("/alluser", {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -68,6 +73,21 @@ export const getAllProducts = async () => {
     payload: response.data.menus,
   }
 }
+
+export const crearPedido = async (data) => {
+  try {
+    await axiosInstance.post("/pedido", data);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Tu pedido se agregó a tu lista',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const getAllPedidos = async () => {
   let response;

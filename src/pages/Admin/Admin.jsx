@@ -12,7 +12,7 @@ const Admin = () => {
       dispatch(getAllProducts());
       dispatch(getAllPedidos());
       dispatch(getAllCategorias());
-    }, [usuarios]);
+    }, []);
   return (
     <div>
         <Usuarios usuarios={usuarios} />

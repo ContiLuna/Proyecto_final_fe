@@ -28,9 +28,9 @@ const productos = [
   },
 ];
 
+
 const Home = () => {
   const { state, dispatch } = useContext(UserContext);
-  console.log(state.productos);
   return (
     <div>
       <div
@@ -56,7 +56,8 @@ const Home = () => {
         <div className="sugerencias">
           {state?.productos?.map((menu) => (
             <Card
-              key={menu.id}
+              menuId={menu._id}
+              key={menu._id}
               title={menu.nombre}
               description={menu.detalle}
               price={menu.precio}
