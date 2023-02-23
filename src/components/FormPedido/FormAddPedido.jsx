@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { crearPedido } from "../../context/UserActions"
 import { Form, FormGroup, Input } from "reactstrap";
+import Swal from 'sweetalert2';
 import "./FormPedido.css";
 
 const FormProducto = (props) => {
@@ -27,9 +28,20 @@ const FormProducto = (props) => {
         const data = {
             "usuario":userId,
             "menu":[dataForm.menu],
+            "cantidad":dataForm.cantidad
         }
-        props.setShow(false)
-        crearPedido(data);
+
+        if(dataForm.cantidad < 1){
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Debes seleccionar una cantidad!!',
+                showConfirmButton: true,
+            })
+        }else{
+            props.setShow(false)
+            crearPedido(data);
+        }
     };
 
     const precio = dataForm.cantidad * props.price;
