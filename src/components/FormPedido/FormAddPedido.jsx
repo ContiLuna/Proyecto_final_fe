@@ -8,10 +8,13 @@ import "./FormPedido.css";
 const FormProducto = (props) => {
     const [dataForm, setDataForm] = useState({ 
         cantidad: 0, 
-        id: props.menuId
+        menu: props.menuId
     });
 
     const { state, dispatch } = useContext(UserContext);
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const userId = user._id;
 
     const handleChange = (e, updateData) => {
         setDataForm(prevData => ({
@@ -23,13 +26,14 @@ const FormProducto = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
-        let formData = new FormData();
-        formData.append("cantidad", dataForm.cantidad);
-        formData.append("id", dataForm.id);
 
-        console.log(dataForm);
-        dispatch(crearPedido(formData));
+        const data = {
+            "usuario":userId,
+            "menu":[dataForm.menu],"cantidad":dataForm.cantidad,
+            
+        }
+
+        crearPedido(data);
     };
 
     const precio = dataForm.cantidad * props.price;
