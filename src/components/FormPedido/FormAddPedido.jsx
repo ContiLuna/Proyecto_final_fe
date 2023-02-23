@@ -10,7 +10,7 @@ const FormProducto = (props) => {
     });
 
     const user = JSON.parse(localStorage.getItem('user'));
-    const userId = user._id;
+    
 
     const handleChange = (e, updateData) => {
         setDataForm(prevData => ({
@@ -23,6 +23,7 @@ const FormProducto = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        const userId = user._id;
         const data = {
             "usuario":userId,
             "menu":[dataForm.menu],
