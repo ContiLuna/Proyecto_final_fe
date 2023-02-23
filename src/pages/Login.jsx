@@ -24,7 +24,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const sendLogin = async (data) => {
-    console.log(data);
     dispatch(loginUser(data, navigate));
   };
 
