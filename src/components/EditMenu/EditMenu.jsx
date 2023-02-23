@@ -12,9 +12,7 @@ const EditMenu = ({menu, setShowModal}) => {
     const  { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(MENU_EDIT_SCHEMA)
     });
-    console.log(menu._id)
     const onSubmit = (data) => {
-        console.log(data)
         actualizarMenu(menu._id, data, dispatch, setShowModal)
         reset()
     }

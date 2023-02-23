@@ -8,7 +8,6 @@ const TablaPedidos = () => {
   const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState(state?.pedidos);
-  console.log(state?.pedidos)
 
   const searchFilter = (search) => {
     setSearch(search);
