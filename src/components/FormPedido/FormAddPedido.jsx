@@ -31,7 +31,7 @@ const FormProducto = (props) => {
             "cantidad":dataForm.cantidad
         }
 
-        if(dataForm.cantidad === 0){
+        if(dataForm.cantidad < 1){
             Swal.fire({
                 position: 'center',
                 icon: 'warning',
