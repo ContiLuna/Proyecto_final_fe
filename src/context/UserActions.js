@@ -80,9 +80,9 @@ export const crearPedido = async (data) => {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'Pedido realizado con exito',
+      title: 'Tu pedido se agregó a tu lista',
       showConfirmButton: false,
-      timer: 1500
+      timer: 2000
     })
   } catch (error) {
     console.log(error);

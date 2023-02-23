@@ -1,8 +1,6 @@
-import React, { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { UserContext } from "../../context/UserContext";
+import React, { useState } from "react";
 import { crearPedido } from "../../context/UserActions"
-import { Form, Button, FormGroup, Input, Label } from "reactstrap";
+import { Form, FormGroup, Input } from "reactstrap";
 import "./FormPedido.css";
 
 const FormProducto = (props) => {
@@ -10,8 +8,6 @@ const FormProducto = (props) => {
         cantidad: 0, 
         menu: props.menuId
     });
-
-    const { state, dispatch } = useContext(UserContext);
 
     const user = JSON.parse(localStorage.getItem('user'));
     const userId = user._id;
@@ -29,10 +25,9 @@ const FormProducto = (props) => {
 
         const data = {
             "usuario":userId,
-            "menu":[dataForm.menu],"cantidad":dataForm.cantidad,
-            
+            "menu":[dataForm.menu],
         }
-
+        props.setShow(false)
         crearPedido(data);
     };
 

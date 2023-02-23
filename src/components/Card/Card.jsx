@@ -31,6 +31,7 @@ const Card = (props) => {
       <ModalReact show={showModal} setShow={setShowModal}>
         <ModalBodyReact>
           <FormPedido 
+          setShow={setShowModal}
           title={props.title}
           description={props.description}
           price={props.price}
