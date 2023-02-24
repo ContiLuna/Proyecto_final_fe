@@ -13,7 +13,7 @@ import RutasPrivadas from "./Routes/Rutas";
 import { useContext, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
-import Pedidos from "./pages/Pedidos";
+import Pedidos from "./pages/pedidos/Pedidos";
 
 function App() {
   const location = useLocation();

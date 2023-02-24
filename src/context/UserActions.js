@@ -1,5 +1,5 @@
 import { axiosInstance } from "../config/axiosInstance";
-import { GET_ALL_CATEGORIAS, GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER } from "./types";
+import { GET_ALL_CATEGORIAS, GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER, GET_ALL_PEDIDOS_BY_USER } from "./types";
 import Swal from 'sweetalert2';
 
 export const createProducts = async (formData) => {
@@ -71,6 +71,19 @@ export const getAllProducts = async () => {
   return {
     type: GET_ALL_PRODUCTS,
     payload: response.data.menus,
+  }
+}
+
+export const getAllUserPedidos = async (userId) => {
+  let response;
+  try {
+    response = await axiosInstance.get(`/pedidos/user/${userId}`);
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: GET_ALL_PEDIDOS_BY_USER,
+    payload: response.data.pedidos,
   }
 }
 
