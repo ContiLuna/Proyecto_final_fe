@@ -1,23 +1,29 @@
 import React, { useState } from "react";
-import { crearPedido } from "../../context/UserActions"
 import { Form, FormGroup, Input } from "reactstrap";
 import Swal from 'sweetalert2';
 import "./FormPedido.css";
 
 const FormProducto = (props) => {
-    const [dataForm, setDataForm] = useState({ 
-        cantidad: 0, 
-        menu: props.menuId
+    const [dataForm, setDataForm] = useState({
+        cantidad: 0,
+        menu: {
+            id: props.menuId,
+            nombre: props.title,
+            cantidad: 0,
+            precio: props.price
+        }
     });
 
     const user = JSON.parse(localStorage.getItem('user'));
-    
 
-    const handleChange = (e, updateData) => {
+
+    const handleChange = (e) => {
         setDataForm(prevData => ({
             ...prevData,
-            cantidad: e.target.value,
-            ...updateData,
+            menu: {
+                ...prevData.menu,
+            },
+            cantidad: e.target.value
         }));
     };
 
@@ -25,22 +31,36 @@ const FormProducto = (props) => {
         e.preventDefault();
 
         const userId = user._id;
-        const data = {
-            "usuario":userId,
-            "menu":[dataForm.menu],
-            "cantidad":dataForm.cantidad
-        }
 
-        if(dataForm.cantidad < 1){
+        // Obtiene los datos existentes del local storage
+        const prePedido = JSON.parse(localStorage.getItem("prePedido")) || { menu: [] };
+
+        const pedido = {
+            usuario: userId,
+            menu: [...prePedido.menu, dataForm.menu], // Agrega el nuevo menú al arreglo de menús existente
+            cantidad: dataForm.cantidad,
+            precio: precio
+        };
+
+        if (dataForm.cantidad < 1) {
             Swal.fire({
                 position: 'center',
                 icon: 'warning',
                 title: 'Debes seleccionar una cantidad!!',
                 showConfirmButton: true,
             })
-        }else{
-            props.setShow(false)
-            crearPedido(data);
+        } else {
+            props.setShow(false);
+
+            // Guarda los datos actualizados en localStorage
+            localStorage.setItem("prePedido", JSON.stringify(pedido));
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se guardó el menu en tu pedido',
+                showConfirmButton: false,
+                timer: 2500
+            })
         }
     };
 
