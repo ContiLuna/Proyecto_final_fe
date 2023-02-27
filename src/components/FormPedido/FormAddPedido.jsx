@@ -10,7 +10,8 @@ const FormProducto = (props) => {
             id: props.menuId,
             nombre: props.title,
             cantidad: 0,
-            precio: props.price
+            precio: props.price,
+            monto: 0
         }
     });
 
@@ -39,7 +40,7 @@ const FormProducto = (props) => {
             usuario: userId,
             menu: [...prePedido.menu, dataForm.menu], // Agrega el nuevo menú al arreglo de menús existente
             cantidad: dataForm.cantidad,
-            precio: precio
+            monto: precio
         };
 
         if (dataForm.cantidad < 1) {
