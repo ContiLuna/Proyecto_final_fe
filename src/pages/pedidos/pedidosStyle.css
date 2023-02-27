@@ -131,3 +131,13 @@ ul {
     --bs-pagination-active-bg: #51439A;
     --bs-pagination-active-border-color: #51439A;
 }
+
+.pedidos-anteriores li{
+  width: 100%;
+}
+
+.pedidos-anteriores .list-pedido{
+  padding: 10px;
+  background-color: #e9d11c25;
+  border-radius: 10px;
+}
