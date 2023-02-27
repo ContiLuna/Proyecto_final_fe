@@ -6,7 +6,6 @@ import CrearProducto from './pages/CrearProducto'
 import Registro from './components/formRegister';
 import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
-import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
 import Admin from "./pages/Admin/Admin";
 import Menu from "./pages/Admin/Menu";
 import RutasPrivadas from "./Routes/Rutas";
@@ -14,6 +13,7 @@ import { useContext, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 import Pedidos from "./pages/pedidos/Pedidos";
+import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
 
 function App() {
   const location = useLocation();

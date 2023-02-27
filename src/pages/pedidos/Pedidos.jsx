@@ -13,15 +13,13 @@ function Pedidos() {
 	const { state, dispatch } = useContext(UserContext);
 	const pedidoDeLS = JSON.parse(localStorage.getItem('prePedido'));
 
-	let cantidad, menu, usuario, monto, ids;
+	let menu, usuario, monto, ids;
 	if (pedidoDeLS) {
-		cantidad = pedidoDeLS.cantidad;
 		menu = pedidoDeLS.menu;
 		usuario = pedidoDeLS.usuario;
 		monto = pedidoDeLS.monto;
 		ids = menu.map(item => item.id);
 	} else {
-		cantidad = 0;
 		menu = [];
 		usuario = '';
 		monto = 0;
@@ -30,7 +28,6 @@ function Pedidos() {
 
 	const pedido = {
 		menu: ids,
-		cantidad: cantidad,
 		usuario: usuario,
 		monto: monto
 	}
@@ -59,7 +56,7 @@ function Pedidos() {
 	const eliminarMenu = (index) => {
 		const nuevoMenu = [...menu];
 		nuevoMenu.splice(index, 1);
-		localStorage.setItem('prePedido', JSON.stringify({ cantidad, menu: nuevoMenu, usuario }));
+		localStorage.setItem('prePedido', JSON.stringify({ menu: nuevoMenu, usuario }));
 	};
 
 	const handleEliminarItem = (item) => {
@@ -187,21 +184,23 @@ function Pedidos() {
 							)}
 							<ul>
 								{currentItems.map((pedido) => (
-									<div className="pedidos-anteriores my-5 d-flex">
-										<li key={pedido._id}>
-											<h2>
-												Pedido <span style={{ borderBottom: '3px solid purple', width: '60%' }}>#{pedido._id}</span>
-											</h2><br /><br />
+									<div className="pedidos-anteriores my-5">
+										<h2>
+											Pedido <span style={{ borderBottom: '3px solid purple', width: '60%' }}>#{pedido._id}</span>
+										</h2><br /><br />
+										<li key={pedido._id} className="list-pedido my-4 my-md-3">
 											<ul>
 												{pedido.menu.map((menu) => (
 													<li key={menu._id}>
 														<h3><span style={{ color: 'purple' }}>-</span>{menu.nombre}</h3>
-														<p>Precio: {menu.precio}</p>
+														<p>Precio: ${menu.precio}</p>
 														<p>Cantidad: {menu.cantidad}</p>
 													</li>
 												))}
 											</ul>
 										</li>
+										<p>Estado: {pedido.estado}</p>
+										<h4 className="text-center total-pedido">Monto: ${pedido.monto}</h4>
 									</div>
 								))}
 							</ul>

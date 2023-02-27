@@ -5,7 +5,6 @@ import "./FormPedido.css";
 
 const FormProducto = (props) => {
     const [dataForm, setDataForm] = useState({
-        cantidad: 0,
         menu: {
             id: props.menuId,
             nombre: props.title,
@@ -23,8 +22,8 @@ const FormProducto = (props) => {
             ...prevData,
             menu: {
                 ...prevData.menu,
-            },
-            cantidad: e.target.value
+                cantidad: e.target.value
+            }
         }));
     };
 
@@ -35,15 +34,15 @@ const FormProducto = (props) => {
 
         // Obtiene los datos existentes del local storage
         const prePedido = JSON.parse(localStorage.getItem("prePedido")) || { menu: [] };
-
+    
+        const monto = dataForm.menu.cantidad * props.price;
         const pedido = {
             usuario: userId,
-            menu: [...prePedido.menu, dataForm.menu], // Agrega el nuevo menú al arreglo de menús existente
-            cantidad: dataForm.cantidad,
-            monto: precio
+            menu: [...prePedido.menu, {...dataForm.menu, monto}], // Agregar la propiedad monto al objeto menu del nuevo pedido
+            monto: prePedido.menu.reduce((acc, item) => acc + item.monto, monto), // Actualizar el monto total
         };
 
-        if (dataForm.cantidad < 1) {
+        if (dataForm.menu.cantidad < 1) {
             Swal.fire({
                 position: 'center',
                 icon: 'warning',
@@ -65,7 +64,7 @@ const FormProducto = (props) => {
         }
     };
 
-    const precio = dataForm.cantidad * props.price;
+    const precio = dataForm.menu.cantidad * props.price;
 
     return (
         <div className="form-pedidos">
@@ -90,7 +89,7 @@ const FormProducto = (props) => {
                             type="select"
                             onChange={(e) => handleChange(e, { id: props.menuId })}
                             required
-                            value={dataForm.cantidad}
+                            value={dataForm.menu.cantidad}
                         >
                             <option value="0">Seleccione la cantidad</option>
                             <option value="1">1</option>
@@ -101,7 +100,7 @@ const FormProducto = (props) => {
                         </Input>
                     </FormGroup>
                     <button className="d-flex justify-content-around align-items-center btn-pedido">
-                        <div>{dataForm.cantidad}</div>
+                        <div>{dataForm.menu.cantidad}</div>
                         <p className="btn-solid">Agregar pedido</p>
                         <div>${precio}</div>
                     </button>
