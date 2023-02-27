@@ -8,8 +8,8 @@ export const createProducts = async (formData) => {
             headers:{
                 "Content-Type":"multipart/form-data",
             }
-         })
-         Swal.fire({
+        })
+        Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Tu producto se ha agregado con exito!',
@@ -204,7 +204,6 @@ export const getAllCategorias = async () => {
   let response;
   try {
     response = await axiosInstance.get("/categorias");
-    console.log(response.data.categorias)
   } catch (error) {
     console.log(error);
   }

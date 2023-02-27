@@ -29,11 +29,59 @@
 
 .btn-enviar-pedido{
     width: 100%;
-    background-color: #51439A;
+    background-color: #55912f;
     border-radius: 0px;
     height: 60px;
     color: #fff;
 }
+
+.btn-enviar-pedido:hover{
+  width: 100%;
+  background-color: #33581b;
+  border-radius: 0px;
+  height: 60px;
+  color: #fff;
+}
+
+.btn-eliminar-pedido {
+  position: relative;
+  background-color: #b43b23;
+  border-radius: 0px;
+  height: 35px;
+  color: #fff;
+  transition: width 0.3s ease-in-out;
+  }
+
+  .btn-eliminar-pedido:active {
+    position: relative;
+    background-color: #b43b23;
+    border-radius: 0px;
+    height: 35px;
+    color: #fff;
+    transition: width 0.3s ease-in-out;
+    }
+
+  .btn-eliminar-pedido:before{
+    content: "X";
+  }
+  
+  .btn-eliminar-pedido:hover:before {
+  content: "Cancelar pedido";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  }
+  
+  .btn-eliminar-pedido:hover {
+  width: 250px;
+  background-color: #b43b23;
+  border-radius: 0px;
+  height: 35px;
+  color: #fff;
+  transition: width 0.3s ease-in-out;
+  }
 
 .total-pedido{
     background-color: lightblue;
@@ -59,4 +107,37 @@
     background-color: #E9D01C;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.pedido-actual form{
+  width: 100%;
+}
+
+.pedido-actual p{
+  margin-bottom: 0px !important;
+}
+
+.delete-item{
+  height: 40px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px ;
+}
+
+.pagination{
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(161, 13, 253, 0.25);
+    --bs-pagination-active-bg: #51439A;
+    --bs-pagination-active-border-color: #51439A;
+}
+
+.pedidos-anteriores li{
+  width: 100%;
+}
+
+.pedidos-anteriores .list-pedido{
+  padding: 10px;
+  background-color: #e9d11c25;
+  border-radius: 10px;
 }
