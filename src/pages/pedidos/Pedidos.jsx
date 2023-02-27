@@ -193,12 +193,13 @@ function Pedidos() {
 												{pedido.menu.map((menu) => (
 													<li key={menu._id}>
 														<h3><span style={{ color: 'purple' }}>-</span>{menu.nombre}</h3>
-														<p>Precio: {menu.precio}</p>
+														<p>Precio: ${menu.precio}</p>
 														<p>Cantidad: {menu.cantidad}</p>
 													</li>
 												))}
 											</ul>
 										</li>
+										<p>Estado: {pedido.estado}</p>
 										<h4 className="text-center total-pedido">Monto: ${pedido.monto}</h4>
 									</div>
 								))}
