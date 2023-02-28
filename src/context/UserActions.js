@@ -46,18 +46,27 @@ export const loginUser = async (data, navigate) => {
 export const getAllUsers = async () => {
   let response;
   const token = localStorage.getItem("token");
-  try {
-    response = await axiosInstance.get("/alluser", {
-      headers: {
+  const user = JSON.parse(localStorage.getItem('user'));
+
+  if (user.rol === "admin") {
+    try {
+      response = await axiosInstance.get("/alluser", {
+        headers: {
           Authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (error) {
-    console.log(error);
-  }
-  return {
-    type: GET_ALL_USERS,
-    payload: response.data.users,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    return {
+      type: GET_ALL_USERS,
+      payload: response?.data?.users || [],
+    }
+  } else {
+    return {
+      type: GET_ALL_USERS,
+      payload: [],
+    }
   }
 }
 
