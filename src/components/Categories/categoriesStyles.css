@@ -1,0 +1,38 @@
+.dropdown{
+    width: 70%;
+}
+
+.dropdown button{
+    width: 100%;
+    border-radius: 0px;
+    height: 60px;
+    background-color: #e9d11c25;
+    border: 1px solid #6f6f71;
+    color: #000;
+}
+
+.dropdown button:hover{
+    background-color: #e9d11c6b;
+    color: #000;
+}
+
+.dropdown button:focus:active{
+    background-color: #e9d11c6b;
+    color: #000;
+}
+
+.dropdown-menu.show{
+    width: 100%;
+    color: #000;
+    border-radius: 0px;
+}
+
+.dropdown-item{
+    color: #000 !important;
+    text-align: center;
+}
+
+.btn.show{
+    background-color: #e9d11c6b;
+    color: #000;
+}

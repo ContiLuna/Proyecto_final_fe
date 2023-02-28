@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Card from "../../components/Card/Card";
 import Carrusel from "../../components/Carrusel/Carrusel";
+import Categories from "../../components/Categories/CategoriesForm";
 import Productos from "../../components/Productos/Productos";
 // import Sugerencias from "../../components/Sugerencias/Sugerencias";
 import UserContext from "../../context/UserContext";
@@ -11,7 +12,7 @@ const productos = [
   {
     id: 1,
     path: "/bebidas",
-    img: "https://918230.smushcdn.com/2283449/wp-content/uploads/2021/10/bebidas-alcoholicas-alimentos-colorantes.jpg?lossy=1&strip=1&webp=1",
+    img: "https://www.recetas-puertorico.com/base/stock/Recipe/148-image/148-image_web.jpg",
     title: "Bebidas",
   },
   {
@@ -51,8 +52,9 @@ const Home = () => {
       </div>
       <div>
         <div className="home__producto__title">
-          <h1>Nuestras Sugerencias</h1>
+          <h1>Mira nuestros menus</h1>
         </div>
+        <Categories></Categories>
         <div className="sugerencias">
           {state?.productos?.map((menu) => (
             <Card
