@@ -9,6 +9,7 @@ import './pedidosStyle.css'
 
 function Pedidos() {
 	const [isLoading, setIsLoading] = useState(true);
+	const [reloadComponent, setReloadComponent] = useState(false);
 
 	const { state, dispatch } = useContext(UserContext);
 	const pedidoDeLS = JSON.parse(localStorage.getItem('prePedido'));
@@ -35,6 +36,10 @@ function Pedidos() {
 	const [menuItems, setMenuItems] = useState(menu);
 	const [pedidosAnteriores, setPedidos] = useState([]);
 
+	useEffect(() => {
+		fetchPedidos();
+	}, []);
+
 	const fetchPedidos = async () => {
 		const userLogueado = JSON.parse(localStorage.getItem('user'));
 		const response = await getAllUserPedidos(userLogueado._id);
@@ -42,21 +47,19 @@ function Pedidos() {
 		setIsLoading(false);
 	}
 
-	useEffect(() => {
-		fetchPedidos();
-	}, []);
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		crearPedido(pedido);
 		localStorage.removeItem('prePedido');
+		setReloadComponent(!reloadComponent); 
 	}
 
 	const eliminarMenu = (index) => {
 		const nuevoMenu = [...menu];
 		nuevoMenu.splice(index, 1);
 		localStorage.setItem('prePedido', JSON.stringify({ menu: nuevoMenu, usuario }));
+		setReloadComponent(!reloadComponent); 
 	};
 
 	const handleEliminarItem = (item) => {
@@ -96,6 +99,7 @@ function Pedidos() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				localStorage.removeItem('prePedido');
+				setReloadComponent(!reloadComponent); 
 				Swal.fire(
 					'Eliminado!',
 					'El pedido ha sido eliminado.',
@@ -132,7 +136,7 @@ function Pedidos() {
 									<div className="row my-3" key={item.id}>
 										<div className="col-11 row">
 											<div className="col-md-5">
-												<p>{item.nombre}</p>
+												<h5><span style={{color: 'purple'}}>-</span> {item.nombre}</h5>
 											</div>
 											<div className="col-md-3">
 												<p>Cantidad: {item.cantidad}</p>
