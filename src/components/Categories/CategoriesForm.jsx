@@ -4,7 +4,7 @@ import { UserContext } from '../../context/UserContext'
 import Dropdown from 'react-bootstrap/Dropdown';
 import './categoriesStyles.css'
 
-const Categories = () => {
+const Categories = ({onSelectCategory, onDeselectCategory}) => {
     const { state, dispatch } = useContext(UserContext);
 
     return (
@@ -15,8 +15,9 @@ const Categories = () => {
                 </Dropdown.Toggle>
                 
                 <Dropdown.Menu>
+                    <Dropdown.Item onClick={onDeselectCategory}>Todas los menu</Dropdown.Item>
                     {state?.categorias.map((categoria) => (
-                        <Dropdown.Item key={categoria._id} href="#/action-1">{categoria.nombre}</Dropdown.Item>
+                        <Dropdown.Item key={categoria._id} onClick={() => onSelectCategory(categoria.nombre)}>{categoria.nombre}</Dropdown.Item>
                     ))}
                 </Dropdown.Menu>
             </Dropdown>
