@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Card from "../../components/Card/Card";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import Categories from "../../components/Categories/CategoriesForm";
@@ -31,6 +31,16 @@ const productos = [
 
 
 const Home = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategorySelect = (categoriaId) => {
+    setSelectedCategory(categoriaId);
+  };
+
+  const handleCategoryDeselect = () => {
+    setSelectedCategory(null);
+  }
+
   const { state, dispatch } = useContext(UserContext);
   return (
     <div>
@@ -54,18 +64,22 @@ const Home = () => {
         <div className="home__producto__title">
           <h1>Mira nuestros menus</h1>
         </div>
-        <Categories></Categories>
+        <Categories 
+        onSelectCategory={handleCategorySelect} 
+        onDeselectCategory={handleCategoryDeselect}/>
         <div className="sugerencias">
-          {state?.productos?.map((menu) => (
-            <Card
-              menuId={menu._id}
-              key={menu._id}
-              title={menu.nombre}
-              description={menu.detalle}
-              price={menu.precio}
-              img={menu.imagen}
-            />
-          ))}
+          {state?.productos
+            .filter((menu) => selectedCategory === null || menu.categoria === selectedCategory)
+            .map((menu) => (
+              <Card
+                menuId={menu._id}
+                key={menu._id}
+                title={menu.nombre}
+                description={menu.detalle}
+                price={menu.precio}
+                img={menu.imagen}
+              />
+            ))}
         </div>
       </div>
     </div>
