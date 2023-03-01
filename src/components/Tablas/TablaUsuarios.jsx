@@ -75,7 +75,7 @@ const TablaUsuarios = () => {
 
       useEffect(() => {
         dispatch(getAllUsers());
-      }, [filtered])
+      }, [])
       
 
   return (
