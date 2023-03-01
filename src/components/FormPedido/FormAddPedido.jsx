@@ -34,11 +34,11 @@ const FormProducto = (props) => {
 
         // Obtiene los datos existentes del local storage
         const prePedido = JSON.parse(localStorage.getItem("prePedido")) || { menu: [] };
-    
+
         const monto = dataForm.menu.cantidad * props.price;
         const pedido = {
             usuario: userId,
-            menu: [...prePedido.menu, {...dataForm.menu, monto}], // Agregar la propiedad monto al objeto menu del nuevo pedido
+            menu: [...prePedido.menu, { ...dataForm.menu, monto }], // Agregar la propiedad monto al objeto menu del nuevo pedido
             monto: prePedido.menu.reduce((acc, item) => acc + item.monto, monto), // Actualizar el monto total
         };
 
@@ -99,11 +99,21 @@ const FormProducto = (props) => {
                             <option value="5">5</option>
                         </Input>
                     </FormGroup>
-                    <button className="d-flex justify-content-around align-items-center btn-pedido">
-                        <div>{dataForm.menu.cantidad}</div>
-                        <p className="btn-solid">Agregar pedido</p>
-                        <div>${precio}</div>
-                    </button>
+                    {
+                        user ? (
+                            <button className="d-flex justify-content-around align-items-center btn-pedido">
+                                <div>{dataForm.menu.cantidad}</div>
+                                <p className="btn-solid">Agregar pedido</p>
+                                <div>${precio}</div>
+                            </button>
+                        ) : (
+                            <button className="d-flex justify-content-around align-items-center btn-pedido btn-disabled" disabled>
+                                <div></div>
+                                <p className="btn-solid">Debes loguearte para realizar un pedido</p>
+                                <div></div>
+                            </button>
+                        )
+                    }
                 </div>
             </Form>
         </div>

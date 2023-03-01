@@ -21,6 +21,10 @@
             transition: .3s;
 }
 
+.btn-disabled{
+    background-color: #ccc;
+}
+
 .btn-pedido:hover{
     transform: scale(1.03);
 }
