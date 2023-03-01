@@ -25,7 +25,7 @@ const FormProducto = () => {
     formData.append("estado", dataForm.estado);
     formData.append("precio", dataForm.precio);
     formData.append("detalle", dataForm.detalle);
-    formData.append("image", imgFile[0]);
+    formData.append("imagen", imgFile[0]);
     formData.append("categoria", dataForm.categoria);
     createProducts(formData);
   };
