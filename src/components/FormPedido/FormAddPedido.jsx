@@ -82,30 +82,32 @@ const FormProducto = (props) => {
                     <h3>Precio: ${props.price}</h3>
                 </div>
                 <div className="form-container">
-                    <FormGroup className="form-group">
-                        <Input
-                            className="form-input"
-                            name="cantidad"
-                            type="select"
-                            onChange={(e) => handleChange(e, { id: props.menuId })}
-                            required
-                            value={dataForm.menu.cantidad}
-                        >
-                            <option value="0">Seleccione la cantidad</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </Input>
-                    </FormGroup>
                     {
                         user ? (
-                            <button className="d-flex justify-content-around align-items-center btn-pedido">
-                                <div>{dataForm.menu.cantidad}</div>
-                                <p className="btn-solid">Agregar pedido</p>
-                                <div>${precio}</div>
-                            </button>
+                            <>
+                                <FormGroup className="form-group">
+                                    <Input
+                                        className="form-input"
+                                        name="cantidad"
+                                        type="select"
+                                        onChange={(e) => handleChange(e, { id: props.menuId })}
+                                        required
+                                        value={dataForm.menu.cantidad}
+                                    >
+                                        <option value="0">Seleccione la cantidad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </Input>
+                                </FormGroup>
+                                <button className="d-flex justify-content-around align-items-center btn-pedido">
+                                    <div>{dataForm.menu.cantidad}</div>
+                                    <p className="btn-solid">Agregar pedido</p>
+                                    <div>${precio}</div>
+                                </button>
+                            </>
                         ) : (
                             <button className="d-flex justify-content-around align-items-center btn-pedido btn-disabled" disabled>
                                 <div></div>
