@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 import { menus } from "../../dataUsuarios";
 import { FaRegEdit, FaRegTrashAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import UserContext from "../../context/UserContext";
-import { cambiarEstadoProducto, deleteMenu } from "../../context/UserActions";
+import { cambiarEstadoProducto, deleteMenu, cambiarSugerido } from "../../context/UserActions";
 import ModalReact, { ModalBodyReact, ModalHeaderReact } from "../Modal/ModalReact";
 import EditMenu from "../EditMenu/EditMenu";
 
@@ -61,6 +61,11 @@ const TablaMenu = () => {
       sortable: true,
     },
     {
+      name: "Sugerido",
+      selector: (row) => (row.sugerido ? "Sugerido" : "No sugerido"),
+      sortable: true,
+    },
+    {
       name: "Acciones",
       selector: (row) => row.acciones,
       sortable: true,
@@ -76,6 +81,14 @@ const TablaMenu = () => {
                 <button onClick={() => cambiarEstadoProducto(row._id, true, dispatch)} className="btn btn-success"><FaChevronUp /></button>
               )
             }
+            {
+              row.sugerido ? (
+                <button onClick={() => cambiarSugerido(row._id, false, dispatch)} className="btn btn-primary"><FaRegEdit /></button>
+              ) : (
+                <button onClick={() => cambiarSugerido(row._id, true, dispatch)} className="btn btn-primary"><FaRegTrashAlt /></button>
+              )
+            }
+            
           </div>
         );
       },

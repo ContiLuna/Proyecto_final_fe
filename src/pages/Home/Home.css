@@ -4,13 +4,15 @@
     width: 100%;
 }
 .home__producto__title {
-    background-color: #7DD0BE;
+    background: rgb(81,67,154);
+background: linear-gradient(142deg, rgba(81,67,154,1) 0%, rgba(125,208,190,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60px;
+    height: 200px;
     text-align: center;
     color: white;
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
 }
 .home__cards {
     display: flex;

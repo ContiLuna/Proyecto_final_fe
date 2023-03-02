@@ -1,6 +1,7 @@
 
 .Navbcss{
-    background-color: #7DD0BE;
+    background-color: #7dd0bee5;
+    backdrop-filter: blur(5px);
 }
 
 /* .btn {

@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
 import "./crearProducto.css";
 import { createProducts } from "../../context/UserActions";
+import UserContext from "../../context/UserContext";
 
 const FormProducto = () => {
   const [dataForm, setDataForm] = useState({});
   const [imgFile, setImgFile] = useState([]);
+
+  const { state, dispatch } = useContext(UserContext);
 
   const handleChange = (e) => {
     setDataForm({
@@ -110,8 +113,11 @@ const FormProducto = () => {
               required
             >
               <option>Seleccione una categoria</option>
-              <option value="hamburguesas">Hamburguesas</option>
-              <option value="pizzas">Pizzas</option>
+              {
+                state?.categorias.map((categoria) => (
+                  <option>{categoria.nombre}</option>
+                ))
+              }
             </Input>
           </FormGroup>
 

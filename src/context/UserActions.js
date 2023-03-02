@@ -153,7 +153,7 @@ export const cambiarEstadoProducto = async (id, valor, dispatch) => {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'El estado del  ha cambiado!',
+      title: 'El estado del MENU ha cambiado!',
       showConfirmButton: false,
       timer: 1500
     })
@@ -166,20 +166,33 @@ export const cambiarEstadoProducto = async (id, valor, dispatch) => {
 
 export const deleteMenu = async (id, dispatch) => {
   try {
-    await axiosInstance.delete(`/menu/${id}`);
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'El producto ha sido eliminado!',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    const result = await Swal.fire({
+      title: '¿Está seguro de eliminar este producto?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    });
+
+    if (result.isConfirmed) {
+      await axiosInstance.delete(`/menu/${id}`);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'El producto ha sido eliminado!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      dispatch(getAllProducts());
+    }
   } catch (error) {
-    console.log(error)
-  } finally {
-    dispatch(getAllProducts());
+    console.log(error);
   }
-}
+};
+
 
 export const actualizarMenu = async (id, formData, dispatch, setShowModal) => {
   try {
@@ -244,5 +257,30 @@ export const cambiarEstadoPedido = async (id, valor, dispatch) => {
     console.log(error)
   } finally {
     dispatch(getAllPedidos());
+  }
+}
+
+export const cambiarSugerido = async (id, valor, dispatch) => {
+  const body = {
+    sugerido: valor
+  }
+  const token = localStorage.getItem("token");
+  try {
+    await axiosInstance.patch(`/menu/sugerido/${id}`, body, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+    });
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El estado de SUGERIDO ha cambiado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllProducts());
   }
 }
