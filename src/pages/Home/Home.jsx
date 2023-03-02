@@ -9,27 +9,6 @@ import Carousel from 'react-bootstrap/Carousel';
 // import { menus } from "../../dataUsuarios";
 import "./Home.css";
 
-const productos = [
-  {
-    id: 1,
-    path: "/bebidas",
-    img: "https://www.recetas-puertorico.com/base/stock/Recipe/148-image/148-image_web.jpg",
-    title: "Bebidas",
-  },
-  {
-    id: 2,
-    path: "/comida",
-    img: "https://www.clarin.com/img/2020/02/25/sl7YH0U1_1200x630__1.jpg",
-    title: "Comida",
-  },
-  {
-    id: 3,
-    path: "/postres",
-    img: "https://www.clara.es/medio/2021/11/28/postres-navidenos_3f462fd7_1280x1115.jpg",
-    title: "Postres",
-  },
-];
-
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
