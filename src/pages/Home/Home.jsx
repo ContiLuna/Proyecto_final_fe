@@ -61,14 +61,14 @@ const Home = () => {
               <div className="col-md-6 d-flex justify-content-center align-items-center">
                 <div className="texto-sugerencias px-4 py-5">
                   <h1 className="mb-5">Nuestras sugerencias!</h1>
-                  <h4 className="mt-5">Ok food tiene las siguientes recomendaciones para el dia de hoy, son nuestros platos y productos sugeridos de hoy. Pedilos y Disfrutalos!! ;)</h4>
+                  <h4 className="mt-5 text-center">Ok food tiene las siguientes recomendaciones para el dia de hoy, son nuestros platos y productos sugeridos de hoy. Pedilos y Disfrutalos!! ;)</h4>
                 </div>
               </div>
               <div className="col-md-6 mt-5 mt-md-0">
                 <Carousel indicators={false}>
                   {
                     state?.productos
-                      //.filter((menu) => menu.sugerido === true)
+                      .filter((menu) => menu.sugerido === true)
                       .map((menu) => (
                         <Carousel.Item key={menu._id}>
                           <div className="d-flex justify-content-center">
@@ -98,6 +98,7 @@ const Home = () => {
         <div className="sugerencias">
           {state?.productos
             .filter((menu) => selectedCategory === null || menu.categoria === selectedCategory)
+            .filter((menu) => menu.estado === true)
             .map((menu) => (
               <Card
                 menuId={menu._id}
