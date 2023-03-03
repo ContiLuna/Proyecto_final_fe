@@ -115,13 +115,13 @@ const FormProducto = () => {
               <option>Seleccione una categoria</option>
               {
                 state?.categorias.map((categoria) => (
-                  <option>{categoria.nombre}</option>
+                  <option key={categoria._id} value={categoria.nombre}>{categoria.nombre}</option>
                 ))
               }
             </Input>
           </FormGroup>
 
-          <button class="custom-btn btn-13">Enviar</button>
+          <button className="custom-btn btn-13">Enviar</button>
         </div>
       </Form>
     </div>

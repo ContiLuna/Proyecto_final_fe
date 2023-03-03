@@ -47,7 +47,7 @@ const EditMenu = ({menu, setShowModal}) => {
             <select {...register("categoria")} name="categoria" defaultValue="" >
                 {
                     state.categorias.map((categoria) => {
-                        return <option value={categoria.nombre}>{categoria.nombre}</option>
+                        return <option key={categoria._id} value={categoria.nombre}>{categoria.nombre}</option>
                     })
                 }
             </select>
