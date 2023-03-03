@@ -7,9 +7,10 @@
 
 .sugerencias1{
     background-image: url(../../assets/images/archive-product-1.png);
-    background-size: contain;
     background-repeat: no-repeat;
     background-position-x: 40%;
+    background-size: 400px;
+    background-position-y: center;
 }
 
 .texto-sugerencias{

@@ -52,14 +52,14 @@ function Pedidos() {
 
 		crearPedido(pedido);
 		localStorage.removeItem('prePedido');
-		setReloadComponent(!reloadComponent); 
+		setReloadComponent(!reloadComponent);
 	}
 
 	const eliminarMenu = (index) => {
 		const nuevoMenu = [...menu];
 		nuevoMenu.splice(index, 1);
 		localStorage.setItem('prePedido', JSON.stringify({ menu: nuevoMenu, usuario }));
-		setReloadComponent(!reloadComponent); 
+		setReloadComponent(!reloadComponent);
 	};
 
 	const handleEliminarItem = (item) => {
@@ -99,7 +99,7 @@ function Pedidos() {
 		}).then((result) => {
 			if (result.isConfirmed) {
 				localStorage.removeItem('prePedido');
-				setReloadComponent(!reloadComponent); 
+				setReloadComponent(!reloadComponent);
 				Swal.fire(
 					'Eliminado!',
 					'El pedido ha sido eliminado.',
@@ -136,7 +136,7 @@ function Pedidos() {
 									<div className="row my-3" key={item.id}>
 										<div className="col-11 row">
 											<div className="col-md-5">
-												<h5><span style={{color: 'purple'}}>-</span> {item.nombre}</h5>
+												<h5><span style={{ color: 'purple' }}>-</span> {item.nombre}</h5>
 											</div>
 											<div className="col-md-3">
 												<p>Cantidad: {item.cantidad}</p>
@@ -203,7 +203,17 @@ function Pedidos() {
 												))}
 											</ul>
 										</li>
-										<p>Estado: {pedido.estado}</p>
+										<p>Estado: {
+											pedido.estado === 'pendiente' ? (
+												<span className="text-warning">{pedido.estado}</span>
+											) : (
+												pedido.estado === 'confirmado' ? (
+													<span className="text-success">{pedido.estado}</span>
+												) : (
+													<span className="text-warning">{pedido.estado}</span>
+												)
+											)
+										}</p>
 										<h4 className="text-center total-pedido">Monto: ${pedido.monto}</h4>
 									</div>
 								))}
