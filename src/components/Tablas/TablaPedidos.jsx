@@ -1,18 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import DataTable from "react-data-table-component";
 import { cambiarEstadoPedido } from "../../context/UserActions";
 import UserContext from "../../context/UserContext";
-import { pedidos } from "../../dataUsuarios";
 
 const TablaPedidos = () => {
   const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState(state?.pedidos);
 
+  useEffect(() => {
+    setFiltered(state?.pedidos);
+  }, [state?.pedidos]);
+
   const searchFilter = (search) => {
     setSearch(search);
-    const filtered = pedidos.filter((pedido) => {
-      return pedido.usuario.toLowerCase().includes(search.toLowerCase());
+    const filtered = state?.pedidos.filter((pedido) => {
+      return pedido.usuario.nombre.toLowerCase().includes(search.toLowerCase());
     });
     setFiltered(filtered);
   };
@@ -24,8 +27,16 @@ const TablaPedidos = () => {
       sortable: true,
     },
     {
+      name: "Email",
+      selector: (row) => row.usuario.email,
+      sortable: true,
+    },
+    {
       name: "Fecha",
-      selector: (row) => row.fecha,
+      selector: (row) => {
+        const fecha = new Date(row.fecha);
+        return fecha.toLocaleDateString() + " - " + fecha.toLocaleTimeString();
+      },
       sortable: true,
     },
     // {
