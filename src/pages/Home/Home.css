@@ -27,3 +27,23 @@ background: linear-gradient(142deg, rgba(81,67,154,1) 0%, rgba(125,208,190,1) 10
     justify-content: center;
     align-items: center;
 }
+
+.error-conexion-bg{
+    background-image: url(../../assets/images/archive-product-svg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.error-conexion{
+    backdrop-filter: blur(3px);
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.text-error-conexion{
+    text-align: center !important;
+    float: none;
+}

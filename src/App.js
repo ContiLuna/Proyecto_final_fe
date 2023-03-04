@@ -14,33 +14,44 @@ import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 import Pedidos from "./pages/pedidos/Pedidos";
 import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
+import ErrorConection from "./components/ErrorConection";
 
 function App() {
   const location = useLocation();
-  const { state, dispatch } = useContext(UserContext);
-    useEffect(() => {
-      dispatch(getAllUsers());
-      dispatch(getAllProducts());
-      dispatch(getAllPedidos());
-      dispatch(getAllCategorias());
-    }, []);
+  const { state, dispatch, connected } = useContext(UserContext);
+  useEffect(() => {
+    dispatch(getAllUsers());
+    dispatch(getAllProducts());
+    dispatch(getAllPedidos());
+    dispatch(getAllCategorias());
+  }, [connected]);
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/crearProducto' element={<CrearProducto />} />
-        <Route path='/registro' element={<Registro />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/pedidos' element={<Pedidos />} />
-        <Route element={<RutasPrivadas />}>
-          <Route path='/admin' element={<Admin />} />
-          <Route path='/admin/menus' element={<Menu />} />
-        </Route>
-        <Route path='*' element={<PaginaError404 />} />
-      </Routes>
       {
-        location.pathname.includes('admin') ? null : <Footer />
+        connected ? (
+          <>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path='/crearProducto' element={<CrearProducto />} />
+              <Route path='/registro' element={<Registro />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/pedidos' element={<Pedidos />} />
+              <Route element={<RutasPrivadas />}>
+                <Route path='/admin' element={<Admin />} />
+                <Route path='/admin/menus' element={<Menu />} />
+              </Route>
+              <Route path='*' element={<PaginaError404 />} />
+            </Routes>
+            {
+              location.pathname.includes('admin') ? null : <Footer />
+            }
+          </>
+        ) : (
+          <>
+            <ErrorConection/>
+          </>
+        )
       }
     </>
   );
