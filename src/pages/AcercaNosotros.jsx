@@ -13,32 +13,32 @@ const AcercaNosotros = () => {
             </div>
             <div className="container-nosotros">
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677962792/conty_i9720g.jpg" alt="contyluna" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677972086/conty_e51mvg.jpg" alt="conty.l" />
                     <h3>Constanza Luna</h3>
-                    <p>Tengo 00 años. Fan de la Pizza</p>
+                    <p>Tengo 24 años. Fan de la Pizza</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677962791/mauricio_rhsoy4.jpg" alt="contyluna" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677972084/mauri_asaroo.jpg" alt="mauri.t" />
                     <h3>Mauricio Teruel</h3>
-                    <p>Tengo 00 años. Fan de las Empanadas</p>
+                    <p>Tengo 25 años. Fan de las Empanadas</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677962791/clemente_ccfqck.jpg" alt="contyluna" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677962791/clemente_ccfqck.jpg" alt="clemente.c" />
                     <h3>Clemente Cejas</h3>
                     <p>Tengo 23 años. Fan de las Hamburguesas</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677965241/depositphotos_164553988-stock-illustration-vector-user-icon_gtcjxb.webp" alt="carlos.diaz" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677971678/carlos_lguu4m.jpg" alt="carlos.diaz" />
                     <h3>Carlos Diaz</h3>
                     <p>Tengo -- años. Fan --</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677965241/depositphotos_164553988-stock-illustration-vector-user-icon_gtcjxb.webp" alt="lucia.l" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677971678/lu_jckz6c.jpg" alt="lucia.l" />
                     <h3>Lucia Leguizamon</h3>
                     <p>Tengo -- años. Fan --</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677965241/depositphotos_164553988-stock-illustration-vector-user-icon_gtcjxb.webp" alt="lucas.l" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677971681/lucas_bgrftc.jpg" alt="lucas.l" />
                     <h3>Lucas Luna</h3>
                     <p>Tengo -- años. Fan --</p>
                 </div>
@@ -48,12 +48,12 @@ const AcercaNosotros = () => {
                     <p>Tengo -- años. Fan --</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677965241/depositphotos_164553988-stock-illustration-vector-user-icon_gtcjxb.webp" alt="daniel.b" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677971678/dani_iqkyrp.jpg" alt="daniel.b" />
                     <h3>Daniel Borquez</h3>
                     <p>Tengo -- años. Fan --</p>
                 </div>
                 <div className="box-nosotros">
-                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677965241/depositphotos_164553988-stock-illustration-vector-user-icon_gtcjxb.webp" alt="sebastian.z" />
+                    <img src="https://res.cloudinary.com/dryiawgds/image/upload/v1677971677/seba_d5wgkj.jpg" alt="sebastian.z" />
                     <h3>Sebastian Zelarayan</h3>
                     <p>Tengo -- años. Fan --</p>
                 </div>
