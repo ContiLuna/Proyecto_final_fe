@@ -1,6 +1,6 @@
 import './spinnerStyles.css'
 
-const Spinner = () => {
+const SpinnerEdit = () => {
 
     return (
         <>
@@ -11,4 +11,4 @@ const Spinner = () => {
     )
 }
 
-export default Spinner;
+export default SpinnerEdit;

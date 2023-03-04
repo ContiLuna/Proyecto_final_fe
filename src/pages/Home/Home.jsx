@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Card from "../../components/Card/Card";
 import Carrusel from "../../components/Carrusel/Carrusel";
 import Categories from "../../components/Categories/CategoriesForm";
-import Productos from "../../components/Productos/Productos";
 import Sugerencias from "../../components/Sugerencias/Sugerencias";
 import UserContext from "../../context/UserContext";
 import Carousel from 'react-bootstrap/Carousel';

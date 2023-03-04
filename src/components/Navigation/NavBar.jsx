@@ -14,6 +14,7 @@ function NavBar() {
   const token = localStorage.getItem("token");
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("prePedido");
     localStorage.removeItem("user");
     navigate("/login");
   };
