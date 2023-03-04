@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 // import Form from 'react-bootstrap/Form';
@@ -19,7 +19,7 @@ function NavBar() {
   };
   return (
     <Navbar collapseOnSelect expand="sm" sticky="top" className="Navbcss">
-      <Container fluid>
+      <Container fluid className="container-nav">
         <Link to="/">
         <Navbar.Brand>
           <img

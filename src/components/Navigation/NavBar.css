@@ -3,7 +3,7 @@
     background-color: #7dd0bee5;
     backdrop-filter: blur(5px);
 }
-
-/* .btn {
-    background-color: #EDB195;
-} */
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
