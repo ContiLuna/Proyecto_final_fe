@@ -59,9 +59,10 @@ function Pedidos() {
 
 	const eliminarMenu = (index) => {
 		const nuevoMenu = [...menu];
-		nuevoMenu.splice(index, 1);
-		localStorage.setItem('prePedido', JSON.stringify({ menu: nuevoMenu, usuario }));
-		setReloadComponent(!reloadComponent);
+		const itemEliminado = nuevoMenu.splice(index, 1)[0];
+		const nuevoMonto = monto - itemEliminado.precio * itemEliminado.cantidad;
+		localStorage.setItem('prePedido', JSON.stringify({ menu: nuevoMenu, usuario, monto: nuevoMonto }));
+		setMenuItems(nuevoMenu);
 	};
 
 	const handleEliminarItem = (item) => {
