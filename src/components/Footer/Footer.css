@@ -2,6 +2,11 @@
     background: rgb(125,208,190);
     background: linear-gradient(350deg, rgba(125,208,190,1) 0%, rgba(122,197,187,1) 26%, rgba(115,176,182,0) 100%);
     padding: 50px 0px;
+    
+}
+.container-foo {
+    max-width: 1200px;
+    margin: 0px auto;
 }
 .footer-dolp {
     color: rgb(14, 126, 170);

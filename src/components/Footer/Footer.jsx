@@ -6,7 +6,7 @@ const Footer = () => {
 
     return(
         <div className='main-footer'>
-            <div className="container">
+            <div className="container-foo">
                 <div className="row ">
                     <div className="col-md-4 col-sm-4">
                         <img src="https://i.ibb.co/XpJsgPK/Ok-eslogan-191919.png" 
