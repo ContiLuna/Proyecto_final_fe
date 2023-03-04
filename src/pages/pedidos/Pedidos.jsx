@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { crearPedido, getAllUserPedidos } from "../../context/UserActions"
 import { UserContext } from "../../context/UserContext"
-import { Form, Alert, Pagination, PaginationItem, PaginationLink, Spinner } from "reactstrap";
+import { Form, Alert, Pagination, PaginationItem, PaginationLink } from "reactstrap";
+
 import Swal from 'sweetalert2';
 import { BsFillTrashFill } from "react-icons/bs";
 import './pedidosStyle.css'
+import SpinnerEdit from "../../components/Spinner/SpinnerEdit";
 
 
 function Pedidos() {
@@ -184,7 +186,7 @@ function Pedidos() {
 					) : (
 						<div>
 							{isLoading && (
-								<Spinner></Spinner>
+								<SpinnerEdit/>
 							)}
 							<ul>
 								{currentItems.map((pedido) => (
