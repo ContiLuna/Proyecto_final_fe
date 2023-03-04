@@ -48,3 +48,8 @@
             rgba(81, 67, 154, 1) 0%,
             rgba(125, 208, 190, 1) 100%);
 }
+.btn-acerca {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
