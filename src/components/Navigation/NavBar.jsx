@@ -89,6 +89,13 @@ function NavBar() {
                 >
                   Registro
                 </Button>
+                <Button
+                  onClick={() => navigate("/nosotros")}
+                  type="button"
+                  className="btn btn-dark"
+                >
+                  Nosotros
+                </Button>
               </>
             )}
           </Nav>

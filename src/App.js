@@ -13,7 +13,10 @@ import { useContext, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 import Pedidos from "./pages/pedidos/Pedidos";
+import AcercaNosotros from "./pages/AcercaNosotros";
 import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
+
+
 
 function App() {
   const location = useLocation();
@@ -32,6 +35,7 @@ function App() {
         <Route path='/crearProducto' element={<CrearProducto />} />
         <Route path='/registro' element={<Registro />} />
         <Route path='/login' element={<Login />} />
+        <Route path="/nosotros" element={<AcercaNosotros />} />
         <Route path='/pedidos' element={<Pedidos />} />
         <Route element={<RutasPrivadas />}>
           <Route path='/admin' element={<Admin />} />
