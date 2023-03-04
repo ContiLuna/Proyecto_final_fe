@@ -1,14 +1,4 @@
 .img__carrusel {
-    margin-top: -45px;
-    height: 100vh;
-    width: 100%; 
-    object-fit: none;
-    margin-bottom: -50px;
-}
-
-.swiper-pagination{
-    position: absolute;
-    text-align: center;
-    z-index: 10;
-    margin-bottom: 30px;
+    width: 100%;
+    object-fit: cover;
 }
