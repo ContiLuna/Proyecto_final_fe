@@ -16,23 +16,22 @@ const Footer = () => {
                     <div className="col-md-4 col-sm-4 mt-2">
                         <h4 className='text-center'>Contacto</h4>
                         <ul className='list-unstyled'>
-                            <li className='text-center '><a rel="noreferrer noopener" target="_blank" href="https://outlook.live.com/owa/">food_ok@hotmail.com</a></li>
-                            <li className='text-center'>3813123456</li>
+                            <li className='text-center m-4'><a rel="noreferrer noopener" target="_blank" href="https://outlook.live.com/owa/">food_ok@hotmail.com</a></li>
                         </ul>
                     </div>
-                    <div className="col-md-4 col-sm-4">
+                    <div className="col-md-4 col-sm-4 redes">
                         <h4 className='text-center mt-2'>Seguinos en nuestras redes</h4>
-                        <ul className='list-unstyled d-flex justify-content-between m-4'>
-                            <a rel="noreferrer noopener" href="https://www.facebook.com/" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></a>
+                        <ul className='d-flex justify-content-between m-5'>
+                            <a rel="noreferrer noopener" href="https://www.facebook.com/" target='_blank' role="button" className="btn btn-primary rounded-circle"><i className="bi bi-facebook"></i></a>
                             {/* <Link rel="noreferrer noopener" href="https://www.facebook.com/" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></Link> */}
-                            <a rel="noreferrer noopener" href="https://www.instagram.com" target='_blank' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></a>
+                            <a rel="noreferrer noopener" href="https://www.instagram.com" target='_blank' role="button" className="btn btn-danger rounded-circle"><i className="bi bi-instagram"></i></a>
                             {/* <Link rel="noreferrer noopener" href="https://www.instagram.com" target='_blank' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></Link> */}
-                            <a rel="noreferrer noopener" href="https://www.twitter.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></a>
+                            <a rel="noreferrer noopener" href="https://www.twitter.com" target='_blank' role="button" className="btn btn-primary rounded-circle"><i className="bi bi-twitter"></i></a>
                             {/* <Link rel="noreferrer noopener" href="https://www.twitter.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></Link> */}
                         </ul>
                     </div>
                 </div>
-                <hr />
+                <hr className='hr-footer' />
                 <div className="footer-bottom">
                     <p className='text-center m-0'>
                         Copyright &copy;{new Date().getFullYear()} <span className='footer-dolp'>Dolphin Code</span> | Todos los derechos reservados
