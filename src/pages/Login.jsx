@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import "./loginStyle.css";
@@ -9,8 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import imgDelivery from "../assets/delivery-guy-1424808_1280.png";
 import Loader from "../components/Loader/Loader";
 import NotificacionesApp from "../components/Notificaciones/NotificacionesApp";
-
-
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -31,7 +29,10 @@ const Login = () => {
     setLoading(true);
 
     dispatch(loginUser(data, navigate, setLoading));
-    NotificacionesApp.success("Bienvenido", "Has iniciado sesión correctamente");
+    NotificacionesApp.success(
+      "Bienvenido",
+      "Has iniciado sesión correctamente"
+    );
   };
 
   return (
@@ -94,7 +95,7 @@ const Login = () => {
             {
               // despues el texto cargando cambiarlo por el componente loader
               loading ? (
-                "cargando..."
+                <Loader />
               ) : (
                 <button type="submit" className="login-btn">
                   Iniciar sesión
@@ -102,9 +103,12 @@ const Login = () => {
               )
             }
             {/* <button onClick={() => navigate("/registro")} className="login-btn">Registrate</button> */}
-            <Link to="/registro" className="register-link">
-              ¿No tienes cuenta? Regístrate
-            </Link>
+            <div style={{ display: "flex", marginTop: "15px" }}>
+              <p>¿No tienes cuenta? </p>
+              <Link to="/registro" className="register-link">
+                Regístrate
+              </Link>
+            </div>
           </div>
         </form>
       </div>

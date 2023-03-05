@@ -120,3 +120,14 @@
     background-color: #ccc;
     cursor: not-allowed;
 }
+
+.register-link {
+    color: #7dd0be !important;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.register-link:hover {
+    color: #6bc0ae !important;
+}
