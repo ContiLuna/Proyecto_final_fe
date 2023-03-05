@@ -4,10 +4,19 @@ import { cambiarEstadoUsuario, getAllUsers } from "../../context/UserActions";
 import UserContext from "../../context/UserContext";
 
 
-const TablaUsuarios = ({usuarios}) => {
+const TablaUsuarios = () => {
   const {state, dispatch} = useContext(UserContext);
     const [search, setSearch] = useState("");
+    const [usuarios, setUsuarios] = useState(state?.users);
   const [filtered, setFiltered] = useState(usuarios);
+
+  useEffect(() => {
+    setUsuarios(state?.users);
+  }, [state?.users]);
+
+  useEffect(() => {
+    setFiltered(usuarios);
+  }, [usuarios]);
 
   const searchFilter = (search) => {
     setSearch(search);
@@ -66,7 +75,7 @@ const TablaUsuarios = ({usuarios}) => {
 
       useEffect(() => {
         dispatch(getAllUsers());
-      }, [filtered])
+      }, [])
       
 
   return (

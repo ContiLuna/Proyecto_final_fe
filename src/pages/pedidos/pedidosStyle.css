@@ -1,0 +1,143 @@
+.card-pedido{
+    border-radius: 20px;
+    box-shadow:
+    1px 1px 2.2px rgba(0, 0, 0, 0.02),
+    2.3px 2.3px 5.3px rgba(0, 0, 0, 0.028),
+    4.4px 4.4px 10px rgba(0, 0, 0, 0.035),
+    7.8px 7.8px 17.9px rgba(0, 0, 0, 0.042),
+    14.6px 14.6px 33.4px rgba(0, 0, 0, 0.05),
+    35px 35px 80px rgba(0, 0, 0, 0.07)
+  ;
+    padding: 24px 36px;
+}
+
+.pedido-actual{
+    background-color: #ececec;
+    box-shadow:
+    1px 1px 2.2px rgba(0, 0, 0, 0.02),
+    2.3px 2.3px 5.3px rgba(0, 0, 0, 0.028),
+    4.4px 4.4px 10px rgba(0, 0, 0, 0.035),
+    7.8px 7.8px 17.9px rgba(0, 0, 0, 0.042),
+    14.6px 14.6px 33.4px rgba(0, 0, 0, 0.05),
+    35px 35px 80px rgba(0, 0, 0, 0.07)
+  ;
+}
+
+.pedido-actual .pedido-actual-interior{
+    padding: 24px 36px;
+}
+
+.btn-enviar-pedido{
+    width: 100%;
+    background-color: #55912f;
+    border-radius: 0px;
+    height: 60px;
+    color: #fff;
+}
+
+.btn-enviar-pedido:hover{
+  width: 100%;
+  background-color: #33581b;
+  border-radius: 0px;
+  height: 60px;
+  color: #fff;
+}
+
+.btn-eliminar-pedido {
+  position: relative;
+  background-color: #b43b23;
+  border-radius: 0px;
+  height: 35px;
+  color: #fff;
+  transition: width 0.3s ease-in-out;
+  }
+
+  .btn-eliminar-pedido:active {
+    position: relative;
+    background-color: #b43b23;
+    border-radius: 0px;
+    height: 35px;
+    color: #fff;
+    transition: width 0.3s ease-in-out;
+    }
+
+  .btn-eliminar-pedido:before{
+    content: "X";
+  }
+  
+  .btn-eliminar-pedido:hover:before {
+  content: "Cancelar pedido";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px;
+  }
+  
+  .btn-eliminar-pedido:hover {
+  width: 250px;
+  background-color: #b43b23;
+  border-radius: 0px;
+  height: 35px;
+  color: #fff;
+  transition: width 0.3s ease-in-out;
+  }
+
+.total-pedido{
+    background-color: lightblue;
+    border-radius: 10px;
+    padding: 10px 0px;
+}
+
+.pedidos-anteriores{
+    background-color: #ececec;
+    border-radius: 30px;
+    padding: 20px 30px;
+    box-shadow:
+    1px 1px 2.2px rgba(0, 0, 0, 0.02),
+    2.3px 2.3px 5.3px rgba(0, 0, 0, 0.028),
+    4.4px 4.4px 10px rgba(0, 0, 0, 0.035),
+    7.8px 7.8px 17.9px rgba(0, 0, 0, 0.042),
+    14.6px 14.6px 33.4px rgba(0, 0, 0, 0.05),
+    35px 35px 80px rgba(0, 0, 0, 0.07)
+  ;
+}
+
+.precio-resaltado{
+    background-color: #E9D01C;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.pedido-actual form{
+  width: 100%;
+}
+
+.pedido-actual p{
+  margin-bottom: 0px !important;
+}
+
+.delete-item{
+  height: 40px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0px ;
+}
+
+.pagination{
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(161, 13, 253, 0.25);
+    --bs-pagination-active-bg: #51439A;
+    --bs-pagination-active-border-color: #51439A;
+}
+
+.pedidos-anteriores li{
+  width: 100%;
+}
+
+.pedidos-anteriores .list-pedido{
+  padding: 10px;
+  background-color: #e9d11c25;
+  border-radius: 10px;
+}

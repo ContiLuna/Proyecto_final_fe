@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Form, Button, FormGroup, Input, Label } from "reactstrap";
 import "./crearProducto.css";
 import { createProducts } from "../../context/UserActions";
+import UserContext from "../../context/UserContext";
 
 const FormProducto = () => {
   const [dataForm, setDataForm] = useState({});
   const [imgFile, setImgFile] = useState([]);
+
+  const { state, dispatch } = useContext(UserContext);
 
   const handleChange = (e) => {
     setDataForm({
@@ -25,7 +28,7 @@ const FormProducto = () => {
     formData.append("estado", dataForm.estado);
     formData.append("precio", dataForm.precio);
     formData.append("detalle", dataForm.detalle);
-    formData.append("image", imgFile[0]);
+    formData.append("imagen", imgFile[0]);
     formData.append("categoria", dataForm.categoria);
     createProducts(formData);
   };
@@ -110,12 +113,15 @@ const FormProducto = () => {
               required
             >
               <option>Seleccione una categoria</option>
-              <option value="hamburguesas">Hamburguesas</option>
-              <option value="pizzas">Pizzas</option>
+              {
+                state?.categorias.map((categoria) => (
+                  <option key={categoria._id} value={categoria.nombre}>{categoria.nombre}</option>
+                ))
+              }
             </Input>
           </FormGroup>
 
-          <button class="custom-btn btn-13">Enviar</button>
+          <button className="custom-btn btn-13">Enviar</button>
         </div>
       </Form>
     </div>

@@ -14,6 +14,7 @@ function NavBar() {
   const token = localStorage.getItem("token");
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("prePedido");
     localStorage.removeItem("user");
     navigate("/login");
   };
@@ -44,12 +45,14 @@ function NavBar() {
               </Nav.Link>
             </Link>
             <Link to="/pedidos">
+            {localStorage.getItem('user') ? (
               <Nav.Link
                 href="#action2"
                 className="d-inline-flex justify-content-center"
               >
                 Pedidos
               </Nav.Link>
+            ) : null}
             </Link>
             {user.rol !== "admin" ? (
               ""

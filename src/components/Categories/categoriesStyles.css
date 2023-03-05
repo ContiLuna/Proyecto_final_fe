@@ -1,0 +1,44 @@
+.dropdown{
+    width: 70%;
+}
+
+.dropdown button{
+    width: 100%;
+    border-radius: 0px;
+    height: 60px;
+    background: rgb(125,208,190);
+background: linear-gradient(118deg, rgba(125,208,190,1) 0%, rgba(81,67,154,1) 100%, rgba(115,176,182,0) 100%);
+    border: none;
+    color: #fff;
+}
+
+.dropdown button:hover{
+    background: rgb(125,208,190);
+background: linear-gradient(118deg, rgba(125,208,190,1) 0%, rgba(81,67,154,1) 100%, rgba(115,176,182,0) 100%);
+    color: #fff;
+}
+
+.dropdown button:focus:active{
+    background-color: rgba(82, 67, 154, 0.551);
+    color: #fff;
+}
+
+.dropdown-menu.show{
+    width: 100%;
+    color: #000;
+    border-radius: 0px;
+}
+
+.dropdown-item{
+    color: #000 !important;
+    text-align: center;
+}
+
+.btn.show{
+    background-color: rgba(82, 67, 154, 0.551);
+    color: #000;
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: rgba(82, 67, 154, 0.551);
+}

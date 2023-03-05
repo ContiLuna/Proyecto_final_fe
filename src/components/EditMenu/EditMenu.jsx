@@ -12,9 +12,7 @@ const EditMenu = ({menu, setShowModal}) => {
     const  { register, handleSubmit, formState: { errors }, reset } = useForm({
         resolver: yupResolver(MENU_EDIT_SCHEMA)
     });
-    console.log(menu._id)
     const onSubmit = (data) => {
-        console.log(data)
         actualizarMenu(menu._id, data, dispatch, setShowModal)
         reset()
     }
@@ -49,7 +47,7 @@ const EditMenu = ({menu, setShowModal}) => {
             <select {...register("categoria")} name="categoria" defaultValue="" >
                 {
                     state.categorias.map((categoria) => {
-                        return <option value={categoria.nombre}>{categoria.nombre}</option>
+                        return <option key={categoria._id} value={categoria.nombre}>{categoria.nombre}</option>
                     })
                 }
             </select>

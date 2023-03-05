@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
@@ -22,9 +23,9 @@ const Footer = () => {
                     <div className="col-md-4 col-sm-4">
                         <h4 className='text-center mt-2'>Seguinos en nuestras redes</h4>
                         <ul className='list-unstyled d-flex justify-content-between m-4'>
-                            <a rel="noreferrer noopener" href="https://facebook.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></a>
-                            <a rel="noreferrer noopener" href="https://instagram.com" target='_blank' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></a>
-                            <a rel="noreferrer noopener" href="https://twitter.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></a>
+                            <Link rel="noreferrer noopener" href="https://facebook.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-facebook"></i></Link>
+                            <Link rel="noreferrer noopener" href="https://instagram.com" target='_blank' role="button" className="btn btn-danger text-center"><i className="bi bi-instagram"></i></Link>
+                            <Link rel="noreferrer noopener" href="https://twitter.com" target='_blank' role="button" className="btn btn-primary text-center"><i className="bi bi-twitter"></i></Link>
                         </ul>
                     </div>
                 </div>

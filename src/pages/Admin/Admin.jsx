@@ -6,13 +6,18 @@ import Usuarios from './Usuarios'
 
 const Admin = () => {
     const { state, dispatch } = useContext(UserContext);
-    const [usuarios, setUsuarios] = useState(state?.users);
+    const [usuarios, setUsuarios] = useState([]);
+
+    useEffect(() => {
+      setUsuarios(state?.users);
+    }, []);
+
     useEffect(() => {
       dispatch(getAllUsers());
       dispatch(getAllProducts());
       dispatch(getAllPedidos());
       dispatch(getAllCategorias());
-    }, [usuarios]);
+    }, []);
   return (
     <div>
         <Usuarios usuarios={usuarios} />

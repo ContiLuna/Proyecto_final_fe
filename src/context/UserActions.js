@@ -1,5 +1,5 @@
 import { axiosInstance } from "../config/axiosInstance";
-import { GET_ALL_CATEGORIAS, GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER } from "./types";
+import { GET_ALL_CATEGORIAS, GET_ALL_PEDIDOS, GET_ALL_PRODUCTS, GET_ALL_USERS, LOGIN_USER, GET_ALL_PEDIDOS_BY_USER } from "./types";
 import Swal from 'sweetalert2';
 
 export const createProducts = async (formData) => {
@@ -7,9 +7,10 @@ export const createProducts = async (formData) => {
         await axiosInstance.post("/menu", formData, {
             headers:{
                 "Content-Type":"multipart/form-data",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
             }
-         })
-         Swal.fire({
+        })
+        Swal.fire({
             position: 'center',
             icon: 'success',
             title: 'Tu producto se ha agregado con exito!',
@@ -47,14 +48,28 @@ export const loginUser = async (data, navigate, setLoading) => {
 
 export const getAllUsers = async () => {
   let response;
-  try {
-    response = await axiosInstance.get("/alluser");
-  } catch (error) {
-    console.log(error);
-  }
-  return {
-    type: GET_ALL_USERS,
-    payload: response.data.users,
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem('user')) || [];
+
+  if (user.rol === "admin") {
+    try {
+      response = await axiosInstance.get("/alluser", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    return {
+      type: GET_ALL_USERS,
+      payload: response?.data?.users || [],
+    }
+  } else {
+    return {
+      type: GET_ALL_USERS,
+      payload: [],
+    }
   }
 }
 
@@ -70,6 +85,34 @@ export const getAllProducts = async () => {
     payload: response.data.menus,
   }
 }
+
+export const getAllUserPedidos = async (userId) => {
+  let response;
+  try {
+    response = await axiosInstance.get(`/pedidos/user/${userId}`);
+  } catch (error) {
+    console.log(error);
+  }
+  return {
+    type: GET_ALL_PEDIDOS_BY_USER,
+    payload: response.data.pedidos,
+  }
+}
+
+export const crearPedido = async (data) => {
+  try {
+    await axiosInstance.post("/pedido", data);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Tu pedido se agregó a tu lista',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export const getAllPedidos = async () => {
   let response;
@@ -113,7 +156,7 @@ export const cambiarEstadoProducto = async (id, valor, dispatch) => {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: 'El estado del  ha cambiado!',
+      title: 'El estado del MENU ha cambiado!',
       showConfirmButton: false,
       timer: 1500
     })
@@ -126,20 +169,33 @@ export const cambiarEstadoProducto = async (id, valor, dispatch) => {
 
 export const deleteMenu = async (id, dispatch) => {
   try {
-    await axiosInstance.delete(`/menu/${id}`);
-    Swal.fire({
-      position: 'center',
-      icon: 'success',
-      title: 'El producto ha sido eliminado!',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    const result = await Swal.fire({
+      title: '¿Está seguro de eliminar este producto?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar',
+    });
+
+    if (result.isConfirmed) {
+      await axiosInstance.delete(`/menu/${id}`);
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'El producto ha sido eliminado!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      dispatch(getAllProducts());
+    }
   } catch (error) {
-    console.log(error)
-  } finally {
-    dispatch(getAllProducts());
+    console.log(error);
   }
-}
+};
+
 
 export const actualizarMenu = async (id, formData, dispatch, setShowModal) => {
   try {
@@ -173,7 +229,6 @@ export const getAllCategorias = async () => {
   let response;
   try {
     response = await axiosInstance.get("/categorias");
-    console.log(response.data.categorias)
   } catch (error) {
     console.log(error);
   }
@@ -205,5 +260,30 @@ export const cambiarEstadoPedido = async (id, valor, dispatch) => {
     console.log(error)
   } finally {
     dispatch(getAllPedidos());
+  }
+}
+
+export const cambiarSugerido = async (id, valor, dispatch) => {
+  const body = {
+    sugerido: valor
+  }
+  const token = localStorage.getItem("token");
+  try {
+    await axiosInstance.patch(`/menu/sugerido/${id}`, body, {
+      headers: {
+          Authorization: `Bearer ${token}`,
+      },
+    });
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'El estado de SUGERIDO ha cambiado!',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  } catch (error) {
+    console.log(error)
+  } finally {
+    dispatch(getAllProducts());
   }
 }
