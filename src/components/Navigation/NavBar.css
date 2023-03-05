@@ -1,9 +1,55 @@
-
-.Navbcss{
+.Navbcss {
     background-color: #7dd0bee5;
     backdrop-filter: blur(5px);
 }
 
-/* .btn {
-    background-color: #EDB195;
-} */
+.container-nav {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-regist {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+
+.btn-log {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+
+.btn-pedidos {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+
+.btn-admin {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+
+.btn-menu {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+
+.btn-desc {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+.btn-cs {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
+.btn-acerca {
+    background: linear-gradient(142deg,
+            rgba(81, 67, 154, 1) 0%,
+            rgba(125, 208, 190, 1) 100%);
+}
