@@ -33,10 +33,11 @@
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  color: #fff;
+  color: #000;
   margin-top: 20px;
   cursor: pointer;
   transition: all 0.4s ease;
+  text-shadow: 1px 1px 1px #FFF;
 }
 .btn_registro:hover {
   background-color: #6bc0ae;
@@ -51,14 +52,14 @@
 }
 
 .tenes_cuenta a {
-  color: #7dd0be;
+  color: #7dd0be !important;
   text-decoration: none;
   font-size: 16px;
   margin-left: 5px;
 }
 
 .tenes_cuenta a:hover {
-  color: #6bc0ae;
+  color: #6bc0ae !important;
 }
 
 /* media query form */
