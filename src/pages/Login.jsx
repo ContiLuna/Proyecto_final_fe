@@ -1,23 +1,16 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./loginStyle.css";
 import { UserContext } from "../context/UserContext";
 import { loginUser } from "../context/UserActions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import imgDelivery from "../assets/delivery-guy-1424808_1280.png";
-import Swal from "sweetalert2";
 import Loader from "../components/Loader/Loader";
+import NotificacionesApp from "../components/Notificaciones/NotificacionesApp";
 
-const Toast = Swal.mixin({
-  toast: true,
-  position: "top-right",
-  iconColor: "white",
-  showConfirmButton: false,
-  timer: 1500,
-  timerProgressBar: true,
-});
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -36,14 +29,9 @@ const Login = () => {
 
   const sendLogin = async (data) => {
     setLoading(true);
-    console.log(data);
-    Toast.fire({
-      icon: "error",
-      title: "Error",
-      background: "red",
-      color: "white",
-    });
+
     dispatch(loginUser(data, navigate, setLoading));
+    NotificacionesApp.success("Bienvenido", "Has iniciado sesión correctamente");
   };
 
   return (
@@ -113,6 +101,10 @@ const Login = () => {
                 </button>
               )
             }
+            {/* <button onClick={() => navigate("/registro")} className="login-btn">Registrate</button> */}
+            <Link to="/registro" className="register-link">
+              ¿No tienes cuenta? Regístrate
+            </Link>
           </div>
         </form>
       </div>

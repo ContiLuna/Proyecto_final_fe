@@ -1,4 +1,5 @@
 import React from "react";
+import "./registro2.css"
 
 const Registro = ({string}) => {
     console.log(string);

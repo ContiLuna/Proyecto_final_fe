@@ -14,6 +14,8 @@ import { useContext, useEffect } from "react";
 import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 import Pedidos from "./pages/App";
+import Registro2 from "./pages/Registro/Registro2";
+
 
 function App() {
   const location = useLocation();
@@ -24,13 +26,14 @@ function App() {
       dispatch(getAllPedidos());
       dispatch(getAllCategorias());
     }, []);
+    console.log(location);
   return (
     <>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/crearProducto' element={<CrearProducto />} />
-        <Route path='/registro' element={<Registro />} />
+        <Route path='/registro' element={<Registro2 />} />
         <Route path='/login' element={<Login />} />
         <Route path='/pedidos' element={<Pedidos />} />
         <Route element={<RutasPrivadas />}>
@@ -40,7 +43,7 @@ function App() {
         <Route path='*' element={<PaginaError404 />} />
       </Routes>
       {
-        location.pathname.includes('admin') ? null : <Footer />
+        location.pathname.includes('admin') || location.pathname.includes('registro') ? "" : <Footer />
       }
     </>
   );

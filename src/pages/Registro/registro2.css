@@ -1,0 +1,40 @@
+.registro__container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+.lado_uno {
+    width: 50%;
+    background: url(https://png.pngtree.com/background/20210709/original/pngtree-food-western-food-steak-tomato-picture-image_941801.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.img__logo_registro {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.lado_dos {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 778px) {
+    .lado_uno {
+        display: none;
+    }
+    .lado_dos {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
