@@ -23,11 +23,12 @@ export const createProducts = async (formData) => {
 }
 
 
-export const loginUser = async (data, navigate) => {
+export const loginUser = async (data, navigate, setLoading) => {
   try {
     const login = await axiosInstance.post("/login", data);
     localStorage.setItem("token", login.data.token);
     localStorage.setItem("user", JSON.stringify(login.data.user));
+    setLoading(false)
     if(login.data.user.rol === "admin"){
       navigate("/admin");
     }else{
@@ -36,6 +37,7 @@ export const loginUser = async (data, navigate) => {
     
   } catch (error) {
     console.log(error);
+    setLoading(false)
   }
 
   return {

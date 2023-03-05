@@ -1,21 +1,21 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./loginStyle.css";
 import { UserContext } from "../context/UserContext";
 import { loginUser } from "../context/UserActions";
 import "bootstrap/dist/css/bootstrap.min.css";
+import imgDelivery from "../assets/delivery-guy-1424808_1280.png";
+import Loader from "../components/Loader/Loader";
+import NotificacionesApp from "../components/Notificaciones/NotificacionesApp";
+
+
 
 const Login = () => {
-
   const [showPassword, setShowPassword] = useState(false);
-
-  const setHidePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
   const { state, dispatch } = useContext(UserContext);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -23,56 +23,92 @@ const Login = () => {
   } = useForm();
   const navigate = useNavigate();
 
+  const setHidePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   const sendLogin = async (data) => {
-    dispatch(loginUser(data, navigate));
+    setLoading(true);
+
+    dispatch(loginUser(data, navigate, setLoading));
+    NotificacionesApp.success("Bienvenido", "Has iniciado sesión correctamente");
   };
 
   return (
-    <form
-      className="container-login bg-dark "
-      onSubmit={handleSubmit(sendLogin)}
-    >
-      <div className="login">
-        <h2>Iniciar Sesion</h2>
-        <div className="form-floating mb-3">
-          <input
-            {...register("email", {
-              required: "Campo requerido",
-              minLength: 10,
-              maxLength: 32,
-            })}
-            type="email"
-            name="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="Email"
-          />
-          <span className="error-email">{errors?.email?.message}</span>
-          <label htmlFor="floatingInput">Email</label>
-        </div>
-        <div className="form-floating mb-3 input-container">
-          <input
-            {...register("password", {
-              required: "Campo requerido",
-              maxLength: 20,
-            })}
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Contraseña"
-          />
-          <button className="show-hide" type="button" onClick={setHidePassword}>
-              {showPassword ? <i class="bi bi-eye-slash-fill"></i> : <i class="bi bi-eye-fill"></i>}
-            </button>
-          <span className="error-pw">{errors?.password?.message}</span>
-          <label htmlFor="floatingPassword">Contraseña</label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Iniciar sesion
-        </button>
+    <div className="login_page_container">
+      <div className="login_page_izq">
+        {/* food delivery image */}
+        <img
+          src={imgDelivery}
+          alt="food-delivery"
+          border="0"
+          className="img-delivery"
+        />
       </div>
-    </form>
+      <div className="login_page_der">
+        <form className="container-login" onSubmit={handleSubmit(sendLogin)}>
+          <div className="login">
+            <img src="https://i.ibb.co/x27ShPx/Ok-food-191919.png" alt="" />
+            <div className="form-floating mb-3">
+              <input
+                {...register("email", {
+                  required: "El Email es obligatorio",
+                  minLength: 10,
+                  maxLength: 32,
+                })}
+                type="email"
+                name="email"
+                className="form-control"
+                id="floatingInput"
+                placeholder="Email"
+              />
+              <span className="error-email">{errors?.email?.message}</span>
+              <label htmlFor="floatingInput">Email</label>
+            </div>
+            <div className="form-floating input-container">
+              <input
+                {...register("password", {
+                  required: "La Contraseña es obligatoria",
+                  maxLength: 20,
+                })}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                className="form-control"
+                id="floatingPassword"
+                placeholder="Contraseña"
+              />
+              <button
+                className="show-hide"
+                type="button"
+                onClick={setHidePassword}
+              >
+                {showPassword ? (
+                  <i class="bi bi-eye-slash-fill"></i>
+                ) : (
+                  <i class="bi bi-eye-fill"></i>
+                )}
+              </button>
+              <span className="error-pw">{errors?.password?.message}</span>
+              <label htmlFor="floatingPassword">Contraseña</label>
+            </div>
+            {
+              // despues el texto cargando cambiarlo por el componente loader
+              loading ? (
+                "cargando..."
+              ) : (
+                <button type="submit" className="login-btn">
+                  Iniciar sesión
+                </button>
+              )
+            }
+            {/* <button onClick={() => navigate("/registro")} className="login-btn">Registrate</button> */}
+            <Link to="/registro" className="register-link">
+              ¿No tienes cuenta? Regístrate
+            </Link>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

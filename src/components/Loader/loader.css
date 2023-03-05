@@ -1,0 +1,30 @@
+.loader {
+    /* position: relative; */
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    /* border: 2px solid blue; */
+    border-top: 8px solid blue;
+    border-right: 8px solid blue;
+    border-left: 8px solid blue;
+    animation: spin 0.575s infinite linear;
+}
+
+/* .loader::after {
+    content: "";
+    position: absolute;
+    bottom: 29px;
+    left: 30px;
+    display: block;
+    transform-origin: 0% 100%;
+    width: 1px;
+    height: 24px;
+    background: #f9f9f9;
+    animation: spin 0.575s infinite linear;
+} */
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

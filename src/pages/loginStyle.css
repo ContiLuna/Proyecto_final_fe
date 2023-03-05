@@ -1,52 +1,107 @@
+.login_page_container {
+    width: 100%;
+    height: calc(100vh - 245px);
+    display: flex;
+}
+
+.login_page_izq {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-delivery {
+    width: 500px;
+    /* height: 100%; */
+    object-fit: cover;
+}
+
+.login_page_der {
+    width: 50%;
+}
+
 .container-login {
-    width: 400px;
-    height: 500px;
-    max-width: 1200px;
-    margin: 150px auto;
-    padding: 20px;
-    border-radius: 20px;
+    max-width: 800px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .login {
+    height: 100%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 .login input {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    height: 50px !important;
     border-radius: 5px;
     margin-bottom: 10px;
 }
-.login h2 {
+.login img {
     margin: 35px 0px;
-    color: white;
+    width: 150px;
 }
-.login button {
-    margin-bottom: 15px;
-    font-size: 22px;
-    border-radius: 20px;
-}
+
 .form-floating {
     width: 100%;
 }
+.show-hide {
+    margin-right: 10px;
+}
+.login-btn {
+    background-color: #7DD0BE;
+    color: black;
+    width: 100%;
+    border: none;
+    height: 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px #FFF;
+    transition: all 0.4s ease;
+}
+.login-btn:hover {
+    background-color: #6BC0AE;
+}
 @media (max-width:500px) {
+    .login_page_container {
+        display: flex;
+        flex-direction: column;
+    }
     .container-login {
         width: 95%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .login_page_izq {
+        display:none;
+    }
+    .login_page_der {
+        width: 100%;
     }
 }
 .error-email {
-    color: white;
+    color: red;
     padding: 2px;
     border-radius: 5px;
 }
 .error-pw {
-    color: white;
+    color: red;
     padding: 2px;
     border-radius: 5px;
 }
 
 .input-container {
     position: relative;
+    margin-bottom: 15px;
 }
 
 .input-container button {
@@ -59,4 +114,9 @@
     border: none;
     border-radius: 50%;
     background-color: transparent;
+}
+
+.login-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }

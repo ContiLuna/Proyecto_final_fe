@@ -11,7 +11,13 @@ export const CREATE_USER_SCHEMA = yup.object().shape({
     .string()
     .email("El email no es válido")
     .required("El email es requerido").matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "El email no es válido"),
-  rol: yup.string().required("El rol es requerido"),
+    //create a custom validation to check if the password and repassword are the same
+    passwordConfirmation: yup.string().test("passwords-match", "Las contraseñas no coinciden", function (value) {
+      return this.parent.password === value;
+    }),
+
+    
+
 });
 
 export const MENU_EDIT_SCHEMA = yup.object().shape({
