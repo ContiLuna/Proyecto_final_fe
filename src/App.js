@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/Navigation/NavBar";
 import Footer from './components/Footer/Footer';
 import CrearProducto from './pages/CrearProducto'
-import Registro from './components/formRegister';
+// import Registro from './components/formRegister';
 import Login from "./pages/Login";
 import Home from "./pages/Home/Home";
 import Admin from "./pages/Admin/Admin";
@@ -14,7 +14,10 @@ import UserContext from "./context/UserContext";
 import { getAllCategorias, getAllPedidos, getAllProducts, getAllUsers } from "./context/UserActions";
 import Pedidos from "./pages/pedidos/Pedidos";
 import AcercaNosotros from "./pages/AcercaNosotros";
+import Registro2 from "./pages/Registro/Registro2";
 import PaginaError404 from "./pages/404/PaginaError404"; //Debe quedar al final para que se pueda renderizar, sino generará conflictos
+
+
 
 
 
@@ -27,13 +30,14 @@ function App() {
       dispatch(getAllPedidos());
       dispatch(getAllCategorias());
     }, []);
+    console.log(location);
   return (
     <>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/crearProducto' element={<CrearProducto />} />
-        <Route path='/registro' element={<Registro />} />
+        <Route path='/registro' element={<Registro2 />} />
         <Route path='/login' element={<Login />} />
         <Route path="/nosotros" element={<AcercaNosotros />} />
         <Route path='/pedidos' element={<Pedidos />} />
@@ -44,7 +48,7 @@ function App() {
         <Route path='*' element={<PaginaError404 />} />
       </Routes>
       {
-        location.pathname.includes('admin') ? null : <Footer />
+        location.pathname.includes('admin') || location.pathname.includes('registro') ? "" : <Footer />
       }
     </>
   );

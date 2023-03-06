@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useForm } from 'react-hook-form';
 import { axiosInstance } from "../config/axiosInstance";
 import "../Styles/FormRegister.css";
+// import "./registro"
 
 const RegistroForm = () => {
   const [showPassword, setShowPassword] = useState(false);
