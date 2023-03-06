@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 // import Form from 'react-bootstrap/Form';
@@ -14,12 +14,13 @@ function NavBar() {
   const token = localStorage.getItem("token");
   const logOut = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("prePedido");
     localStorage.removeItem("user");
     navigate("/login");
   };
   return (
     <Navbar collapseOnSelect expand="sm" sticky="top" className="Navbcss">
-      <Container fluid>
+      <Container fluid className="container-nav">
         <Link to="/">
         <Navbar.Brand>
           <img
@@ -38,7 +39,7 @@ function NavBar() {
             <Link to="/">
               <Nav.Link
                 href="#action1"
-                className="d-inline-flex justify-content-center"
+                className="d-inline-flex justify-content-center fw-bold"
               >
                 Home
               </Nav.Link>
@@ -47,7 +48,7 @@ function NavBar() {
             {localStorage.getItem('user') ? (
               <Nav.Link
                 href="#action2"
-                className="d-inline-flex justify-content-center"
+                className="d-inline-flex justify-content-center btn-pedidos"
               >
                 Pedidos
               </Nav.Link>
@@ -58,19 +59,19 @@ function NavBar() {
             ) : (
               <NavDropdown title="Adminstrador" id="basic-nav-dropdown">
                 <Link to="/admin">
-                  <NavDropdown.Item href="#action/3.1">Admin</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.1" className="btn-admin">Admin</NavDropdown.Item>
                 </Link>
                 <Link to="/admin/menus">
-                  <NavDropdown.Item href="#action/3.2">Menus</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2" className="btn-menu" >Menus</NavDropdown.Item>
                 </Link>
                 <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">
+                <NavDropdown.Item href="#action/3.4" className="btn-desc">
                   Desconectarse
                 </NavDropdown.Item>
               </NavDropdown>
             )}
             {token ? (
-              <Button onClick={logOut} type="button" className="btn btn-dark">
+              <Button onClick={logOut} type="button" className="btn btn-cs">
                 Cerrar Sesión
               </Button>
             ) : (
@@ -78,16 +79,23 @@ function NavBar() {
                 <Button
                   onClick={() => navigate("/login")}
                   type="button"
-                  className="btn btn-dark"
+                  className="btn btn-log"
                 >
                   Ingresar
                 </Button>
                 <Button
                   onClick={() => navigate("/registro")}
                   type="button"
-                  className="btn btn-dark"
+                  className="btn btn-regist"
                 >
                   Registro
+                </Button>
+                <Button
+                  onClick={() => navigate("/nosotros")}
+                  type="button"
+                  className="btn btn-acerca"
+                >
+                 Acerca de Nosotros
                 </Button>
               </>
             )}

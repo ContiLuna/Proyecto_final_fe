@@ -1,0 +1,81 @@
+.form__registro__container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  height: 600px;
+}
+
+.input__registro {
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.registro__errors {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.btn_registro {
+  width: 100%;
+  background: #7dd0be;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #000;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  text-shadow: 1px 1px 1px #FFF;
+}
+.btn_registro:hover {
+  background-color: #6bc0ae;
+}
+
+.tenes_cuenta {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tenes_cuenta a {
+  color: #7dd0be !important;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.tenes_cuenta a:hover {
+  color: #6bc0ae !important;
+}
+
+/* media query form */
+@media screen and (max-width: 889px) {
+  .form__registro__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* @media screen and (min-width: 768px) {
+    .form__registro__container {
+        width: 100%;
+        height: 100%;
+    }
+} */
