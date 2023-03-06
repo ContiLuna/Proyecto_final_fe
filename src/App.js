@@ -25,7 +25,6 @@ function App() {
       dispatch(getAllPedidos());
       dispatch(getAllCategorias());
     }, []);
-    console.log(location);
   return (
     <>
       <NavBar />
