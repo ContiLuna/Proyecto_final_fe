@@ -22,13 +22,13 @@ function NavBar() {
     <Navbar collapseOnSelect expand="sm" sticky="top" className="Navbcss">
       <Container fluid className="container-nav">
         <Link to="/">
-        <Navbar.Brand>
-          <img
-            src="https://i.ibb.co/x27ShPx/Ok-food-191919.png"
-            alt="Logo"
-            width={"50px"}
-          />
-        </Navbar.Brand>
+          <Navbar.Brand>
+            <img
+              src="https://i.ibb.co/x27ShPx/Ok-food-191919.png"
+              alt="Logo"
+              width={"50px"}
+            />
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -44,15 +44,25 @@ function NavBar() {
                 Home
               </Nav.Link>
             </Link>
-            <Link to="/pedidos">
-            {localStorage.getItem('user') ? (
-              <Nav.Link
-                href="#action2"
-                className="d-inline-flex justify-content-center btn-pedidos"
+           
+            <Link to='/nosotros' className="d-inline-flex justify-content-center fw-bold">
+            <Nav.Link
+                href="/nosotros"
+                className="d-inline-flex justify-content-center fw-bold"
               >
-                Pedidos
+                ¿Quienes somos?
               </Nav.Link>
-            ) : null}
+            </Link>
+
+            <Link to="/pedidos">
+              {localStorage.getItem('user') ? (
+                <Nav.Link
+                  href="#action2"
+                  className="d-inline-flex justify-content-center btn-pedidos"
+                >
+                  Pedidos
+                </Nav.Link>
+              ) : null}
             </Link>
             {user.rol !== "admin" ? (
               ""
@@ -89,13 +99,6 @@ function NavBar() {
                   className="btn btn-regist"
                 >
                   Registro
-                </Button>
-                <Button
-                  onClick={() => navigate("/nosotros")}
-                  type="button"
-                  className="btn btn-acerca"
-                >
-                 Acerca de Nosotros
                 </Button>
               </>
             )}
