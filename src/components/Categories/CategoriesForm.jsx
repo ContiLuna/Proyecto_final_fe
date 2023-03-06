@@ -9,7 +9,7 @@ const Categories = ({onSelectCategory, onDeselectCategory}) => {
 
     return (
         <div className='container d-flex justify-content-center align-items-center my-5'>
-            <Dropdown>
+            <Dropdown className='dropdown-categories'>
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Busca por categorias
                 </Dropdown.Toggle>

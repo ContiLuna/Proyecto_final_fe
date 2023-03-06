@@ -17,4 +17,19 @@
     margin: 10px auto;
 }
 
+.icon-redes{
+    font-size: 30px;
+    color: rgba(81, 67, 154, 1) !important;
+}
+
+.text-email{
+    color: rgba(81, 67, 154, 1) !important;
+}
+
+.row-footer{
+    margin: 0px !important;
+}
+
+
+
 

@@ -38,7 +38,7 @@ const Home = () => {
             <div className="row">
               <div className="col-md-6 d-flex justify-content-center align-items-center">
                 <div className="texto-sugerencias px-4 py-5">
-                  <h1 className="mb-5">Nuestras sugerencias!</h1>
+                  <h1 className="mb-5 text-center">Nuestras sugerencias!</h1>
                   <h4 className="mt-5 text-center">Ok food tiene las siguientes recomendaciones para el dia de hoy, son nuestros platos y productos sugeridos de hoy. Pedilos y Disfrutalos!! ;)</h4>
                 </div>
               </div>

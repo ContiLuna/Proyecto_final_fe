@@ -19,6 +19,10 @@ h1 {
     right: -12.5px;
 }
 
+.formRegister{
+    width: 100%;
+}
+
 .in-form {
     background: #EDB195;
     padding: 10px 0 40px 0;
@@ -73,8 +77,8 @@ input:focus {
 }
 
 @media screen and (max-width: 500px) {
-    form {
-        width: 80%;
+    .formRegister {
+        width: 80% !important;
     }
 }
 

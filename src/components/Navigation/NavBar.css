@@ -9,47 +9,26 @@
 }
 
 .btn-regist {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
+    background: rgba(81, 67, 154, 1) !important;
+    border: none !important;
+    border-radius: 0px !important;
 }
 
 .btn-log {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
+    background: rgba(81, 67, 154, 1) !important;
+    border: none !important;
+    border-radius: 0px !important;
 }
 
 .btn-pedidos {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
+    background: rgba(81, 67, 154, 1) !important;
+    border: none !important;
+    border-radius: 0px !important;
+    width: 100%;
 }
 
-.btn-admin {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
-}
-
-.btn-menu {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
-}
-
-.btn-desc {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
-}
 .btn-cs {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
-}
-.btn-acerca {
-    background: linear-gradient(142deg,
-            rgba(81, 67, 154, 1) 0%,
-            rgba(125, 208, 190, 1) 100%);
+    background: rgba(81, 67, 154, 1) !important;
+    border: none !important;
+    border-radius: 0px !important;
 }

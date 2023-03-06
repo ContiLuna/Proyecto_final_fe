@@ -39,21 +39,32 @@ function NavBar() {
             <Link to="/">
               <Nav.Link
                 href="#action1"
-                className="d-inline-flex justify-content-center fw-bold"
+                className="d-inline-flex justify-content-center"
               >
                 Home
               </Nav.Link>
             </Link>
            
-            <Link to='/nosotros' className="d-inline-flex justify-content-center fw-bold">
+            <Link to='/nosotros' className="">
             <Nav.Link
                 href="/nosotros"
-                className="d-inline-flex justify-content-center fw-bold"
+                className="d-inline-flex justify-content-center"
               >
                 ¿Quienes somos?
               </Nav.Link>
             </Link>
-
+            {user.rol !== "admin" ? (
+              ""
+            ) : (
+              <NavDropdown title="Adminstrador" id="basic-nav-dropdown" className="dropdown-admin">
+                <Link to="/admin">
+                  <NavDropdown.Item href="#action/3.1" className="btn-admin">Admin</NavDropdown.Item>
+                </Link>
+                <Link to="/admin/menus">
+                  <NavDropdown.Item href="#action/3.2" className="btn-menu" >Menus</NavDropdown.Item>
+                </Link>
+              </NavDropdown>
+            )}
             <Link to="/pedidos">
               {localStorage.getItem('user') ? (
                 <Nav.Link
@@ -64,22 +75,6 @@ function NavBar() {
                 </Nav.Link>
               ) : null}
             </Link>
-            {user.rol !== "admin" ? (
-              ""
-            ) : (
-              <NavDropdown title="Adminstrador" id="basic-nav-dropdown">
-                <Link to="/admin">
-                  <NavDropdown.Item href="#action/3.1" className="btn-admin">Admin</NavDropdown.Item>
-                </Link>
-                <Link to="/admin/menus">
-                  <NavDropdown.Item href="#action/3.2" className="btn-menu" >Menus</NavDropdown.Item>
-                </Link>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4" className="btn-desc">
-                  Desconectarse
-                </NavDropdown.Item>
-              </NavDropdown>
-            )}
             {token ? (
               <Button onClick={logOut} type="button" className="btn btn-cs">
                 Cerrar Sesión
@@ -89,14 +84,14 @@ function NavBar() {
                 <Button
                   onClick={() => navigate("/login")}
                   type="button"
-                  className="btn btn-log"
+                  className="btn-log"
                 >
                   Ingresar
                 </Button>
                 <Button
                   onClick={() => navigate("/registro")}
                   type="button"
-                  className="btn btn-regist"
+                  className="btn-regist"
                 >
                   Registro
                 </Button>

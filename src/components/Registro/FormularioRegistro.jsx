@@ -9,6 +9,8 @@ import NotificacionesApp from "../Notificaciones/NotificacionesApp";
 import "./formularioRegistro.css";
 
 const FormularioRegistro = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const {
     register,
@@ -18,6 +20,15 @@ const FormularioRegistro = () => {
     resolver: yupResolver(CREATE_USER_SCHEMA),
   });
   const navigate = useNavigate();
+
+  const setHidePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const setHidePasswordConfirm = () => {
+    setShowPasswordConfirm(!showPasswordConfirm);
+  };
+
 
   const verificarUsuarioExistente = async (email) => {
     try {
@@ -44,56 +55,95 @@ const FormularioRegistro = () => {
   };
   return (
     <div className="form__registro__container">
-      <div>
+      <div className="mb-5">
         <h2>Registro Clientes</h2>
       </div>
-      <form onSubmit={handleSubmit(enviarFormulario)}>
-        <div>
-          <label htmlFor="nombre">Nombre</label>
+      <form onSubmit={handleSubmit(enviarFormulario)} className="formRegister">
+        <div className="form-floating mb-3">
           <input
-            className="input__registro"
+            {...register("nombre", {
+              required: "El Nombre es obligatorio",
+              minLength: 10,
+              maxLength: 32,
+            })}
             type="text"
             name="nombre"
-            id="nombre"
-            {...register("nombre")}
+            className="form-control"
+            id="floatingInput"
+            placeholder="Nombre"
           />
-          <span className="registro__errors">{errors?.nombre?.message}</span>
+          <span className="error-email">{errors?.nombre?.message}</span>
+          <label htmlFor="floatingInput">Nombre</label>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
+        <div className="form-floating mb-3">
           <input
-            className="input__registro"
+            {...register("email", {
+              required: "El Email es obligatorio",
+              minLength: 10,
+              maxLength: 32,
+            })}
             type="email"
             name="email"
-            id="email"
-            {...register("email")}
+            className="form-control"
+            id="floatingInput"
+            placeholder="Email"
           />
-          <span className="registro__errors">{errors?.email?.message}</span>
+          <span className="error-email">{errors?.email?.message}</span>
+          <label htmlFor="floatingInput">Email</label>
         </div>
-        <div>
-          <label htmlFor="password">Contraseña</label>
+        <div className="form-floating input-container">
           <input
-            className="input__registro"
-            type="password"
+            {...register("password", {
+              required: "La Contraseña es obligatoria",
+              maxLength: 20,
+            })}
+            type={showPassword ? "text" : "password"}
             name="password"
-            id="password"
-            {...register("password")}
+            className="form-control"
+            id="floatingPassword"
+            placeholder="Contraseña"
           />
-          <span className="registro__errors">{errors?.password?.message}</span>
+          <button
+            className="show-hide"
+            type="button"
+            onClick={setHidePassword}
+          >
+            {showPassword ? (
+              <i class="bi bi-eye-slash-fill"></i>
+            ) : (
+              <i class="bi bi-eye-fill"></i>
+            )}
+          </button>
+          <span className="error-pw">{errors?.password?.message}</span>
+          <label htmlFor="floatingPassword">Contraseña</label>
         </div>
-        <div>
-          <label htmlFor="password2">Confirmar Contraseña</label>
+        <div className="form-floating input-container">
           <input
-            className="input__registro"
-            type="password"
+            {...register("passwordConfirmation", {
+              required: "La Contraseña es obligatoria",
+              maxLength: 20,
+            })}
+            type={showPasswordConfirm ? "text" : "password"}
             name="passwordConfirmation"
-            id="passwordConfirmation"
-            {...register("passwordConfirmation")}
+            className="form-control"
+            id="floatingPassword"
+            placeholder="Contraseña"
           />
-          <span className="registro__errors">
-            {errors?.passwordConfirmation?.message}
-          </span>
+          <button
+            className="show-hide"
+            type="button"
+            onClick={setHidePasswordConfirm}
+          >
+            {showPasswordConfirm ? (
+              <i class="bi bi-eye-slash-fill"></i>
+            ) : (
+              <i class="bi bi-eye-fill"></i>
+            )}
+          </button>
+          <span className="error-pw">{errors?.passwordConfirmation?.message}</span>
+          <label htmlFor="floatingPassword">Confirmar contraseña</label>
         </div>
+
         <div>
           {isLoading ? (
             <div style={{ marginTop: "15px", textAlign: "center" }}>
