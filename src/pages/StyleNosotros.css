@@ -33,6 +33,7 @@
 }
 
 .box-nosotros img {
+    object-fit: cover;
     width: 200px;
     height: 250px;
     border-radius: 0px 80px 80px 80px;
