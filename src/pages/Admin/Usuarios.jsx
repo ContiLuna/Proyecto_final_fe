@@ -35,7 +35,7 @@ const Usuarios = ({usuarios}) => {
       <ModalReact show={showModal} setShow={setShowModal}>
         <ModalHeaderReact>Crear Usuario</ModalHeaderReact>
         <ModalBodyReact>
-          <FormCreateClient />
+          <FormCreateClient setShow={setShowModal} />
         </ModalBodyReact>
       </ModalReact>
     </div>
