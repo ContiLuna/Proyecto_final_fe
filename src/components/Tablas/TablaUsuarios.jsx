@@ -16,7 +16,7 @@ const TablaUsuarios = () => {
 
   useEffect(() => {
     setFiltered(usuarios);
-  }, [usuarios]);
+  }, [usuarios, state?.users]);
 
   const searchFilter = (search) => {
     setSearch(search);
@@ -73,10 +73,6 @@ const TablaUsuarios = () => {
         selectAllRowsItemText: "Todos",
       };
 
-      useEffect(() => {
-        dispatch(getAllUsers());
-      }, [])
-      
 
   return (
     <div style={{ padding: "40px 20px" }}>

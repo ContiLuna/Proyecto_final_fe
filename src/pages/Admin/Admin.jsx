@@ -10,7 +10,7 @@ const Admin = () => {
 
     useEffect(() => {
       setUsuarios(state?.users);
-    }, []);
+    }, [state?.users]);
 
     useEffect(() => {
       dispatch(getAllUsers());

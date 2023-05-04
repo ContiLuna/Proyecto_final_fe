@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./formStyles.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { CREATE_USER_SCHEMA } from "../../utils/formValidations";
 import { axiosInstance } from "../../config/axiosInstance";
 import NotificacionesApp from "../Notificaciones/NotificacionesApp";
+import { getAllUsers } from "../../context/UserActions";
+import UserContext from "../../context/UserContext";
 
 const FormCreateClient = ({setShow}) => {
+  const {state, dispatch} = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -45,8 +48,12 @@ const FormCreateClient = ({setShow}) => {
         setShow(false)
         reset();
       } catch (error) {
-        console.log(error.response.data)
-        NotificacionesApp.error("Error al crear el usuario");
+        // console.log(error.response.data.mensaje)
+        setShow(false)
+        NotificacionesApp.error(error.response.data.mensaje);
+        reset();
+      } finally {
+        dispatch(getAllUsers())
       }
   };
   return (
